@@ -1,35 +1,48 @@
 import random as rand
 
-²
-def generate_card(player_score):
-    card_number = rand.randint(1, 10)
-    card_color = - ((rand.randint(0, 3) % 2) - 1 / 2) * 2
-    # The card color 1 is black with probability 0.66 and -1 is red
-    player_score += card_color * card_number
-    return player_score
 
+class Game():
 
-def first_step():
-    return rand.randint(1, 10), rand.randint(1, 10)
+    def __init__(self):
+        i = 0
 
+    @staticmethod
+    def generate_card(player_score):
+        card_number = rand.randint(1, 10)
+        card_color = - ((rand.randint(0, 3) % 2) - 1 / 2) * 2
+        # The card color 1 is black with probability 0.66 and -1 is red
+        player_score += card_color * card_number
+        return player_score
 
-def step(do_hit, player_score, dealer_score):
-    reward = 0
+    @staticmethod
+    def first_step():
+        return [rand.randint(1, 10), rand.randint(1, 10)]
 
-    if do_hit == 1:
-        player_score = generate_card(player_score)
-        if player_score > 21 or player_score <= 0:
-            reward = -1
+    def step(self, do_hit, scores):
+        reward = 0
+        is_terminal = 0
+        player_score = scores[0]
+        dealer_score = scores[1]
 
-    else:
-        while dealer_score < 17:
-            dealer_score = generate_card(dealer_score)
-        if dealer_score > 21:
-            reward = 1
-        elif dealer_score == player_score:
-            reward = 0
+        if do_hit == 1:
+            player_score = self.generate_card(player_score)
+            if player_score > 21 or player_score <= 0:
+                reward = -1
+                is_terminal = 1
+
         else:
-            reward = -1
+            while dealer_score < 17:
+                dealer_score = self.generate_card(dealer_score)
+            if dealer_score > 21 or player_score > dealer_score:
+                reward = 1
+            elif dealer_score == player_score:
+                reward = 0
+            else:
+                reward = -1
 
-    return player_score, reward
+            is_terminal = 1
+
+        scores = [player_score, dealer_score]
+
+        return scores, reward, is_terminal
 

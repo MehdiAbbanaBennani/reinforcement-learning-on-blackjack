@@ -1,2 +1,2 @@
 # Reinforcement-Learning
-Tic Tac Toe with Reinforcement Learning
+Card Game with Reinforcement Learning, using Monte Carlo, Sarsa(landa) and Action Value function approximation.
