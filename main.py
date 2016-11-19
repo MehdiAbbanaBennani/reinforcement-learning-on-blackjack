@@ -1,23 +1,28 @@
-from Monte_Carlo_Control import MonteCarlo
+from MonteCarlo_Learning import MonteCarlo
 
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
-episodes = 10000
+import time
 
-Smart_Agent_1 = MonteCarlo()
-value, value_action = Smart_Agent_1.learn2(episodes=episodes, epsilon=0.1)
-print(value)
+start_time = time.time()
+
+episodes = 10000
+N0 = 100
+
+Smart_Agent_1 = MonteCarlo(N0=N0)
+value, value_action = Smart_Agent_1.learn2(episodes=episodes)
+
+print("--- %s seconds ---" % (time.time() - start_time))
 
 x = range(np.shape(value)[1])
 y = range(np.shape(value)[0])
 
 xs, ys = np.meshgrid(x, y)
-# z = calculate_R(xs, ys)
 zs = value
 
 fig = plt.figure()
 ax = Axes3D(fig)
 ax.plot_surface(xs, ys, zs, rstride=1, cstride=1, cmap='hot')
-# plt.show()
+plt.show()
