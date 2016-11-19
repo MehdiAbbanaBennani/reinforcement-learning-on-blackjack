@@ -3,8 +3,8 @@ from Algorithms import Algorithms
 
 
 class MonteCarlo(Algorithms):
-    def __init__(self, N0):
-        super().__init__(N0)
+    def __init__(self, N0, gamma):
+        super().__init__(N0, gamma=gamma)
 
     def every_visit_monte_carlo(self, policy, episodes):
         # Variables initialization

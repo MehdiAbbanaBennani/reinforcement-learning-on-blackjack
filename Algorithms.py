@@ -33,6 +33,10 @@ class Algorithms():
     def coord_3d(vector):
         return int(vector[0]) - 1, int(vector[1]) - 1, int(vector[2])
 
+    @staticmethod
+    def coord_3d_2(state, action):
+        return int(state[0]) - 1, int(state[1]) - 1, int(action)
+
     def random_policy(self, state, policy):
         action = round(np.random.binomial(1, policy[self.coord(state)]))
         return action
@@ -54,5 +58,5 @@ class Algorithms():
         return self.N0 / (self.N0 + self.state_visit_count[self.coord(current_state)])
 
     def alpha_t(self, current_state):
-        return 1 / self.state_visit_count[self.coord(current_state)]
+        return 1 / (self.state_visit_count[self.coord(current_state)] + 1)
 
