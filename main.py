@@ -4,8 +4,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 
+episodes = 10000
+
 Smart_Agent_1 = MonteCarlo()
-value = Smart_Agent_1.learn(episodes=100)
+value, value_action = Smart_Agent_1.learn2(episodes=episodes, epsilon=0.1)
 print(value)
 
 x = range(np.shape(value)[1])
@@ -18,4 +20,4 @@ zs = value
 fig = plt.figure()
 ax = Axes3D(fig)
 ax.plot_surface(xs, ys, zs, rstride=1, cstride=1, cmap='hot')
-plt.show()
+# plt.show()
