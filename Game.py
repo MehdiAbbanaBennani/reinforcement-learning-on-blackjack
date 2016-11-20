@@ -3,9 +3,6 @@ import random as rand
 
 class Game():
 
-    def __init__(self):
-        i = 0
-
     @staticmethod
     def generate_card(player_score):
         card_number = rand.randint(1, 10)

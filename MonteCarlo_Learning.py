@@ -29,6 +29,9 @@ class MonteCarlo(Algorithms):
     def glie_monte_carlo(self, episodes):
 
         for i in range(episodes):
+            if i % 40 == 0:
+                print(i, '/', episodes)
+
             states_actions_list, reward = self.run_episode_state_action_value()
 
             for j in range(np.shape(states_actions_list)[0]):

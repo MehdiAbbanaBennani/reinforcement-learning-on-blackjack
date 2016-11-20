@@ -41,13 +41,19 @@ class Algorithms():
         action = round(np.random.binomial(1, policy[self.coord(state)]))
         return action
 
-    def epsilon_greedy(self, state, epsilon):
+    def epsilon_greedy_bis(self, state, epsilon):
         pick = round(np.random.binomial(1, epsilon / 2))
         if pick:
             return round(np.random.binomial(1, 1 / 2))
         else:
             array = self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :]
             return array.argmax()
+
+    def epsilon_greedy(self, state, epsilon):
+        pick = round(np.random.binomial(1, epsilon / 2))
+        possibilities = [(self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :]).argmax(),
+                         round(np.random.binomial(1, 1 / 2))]
+        return possibilities[pick]
 
     @staticmethod
     def to_value_function(state_value_function):
