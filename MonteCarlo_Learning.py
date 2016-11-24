@@ -9,7 +9,6 @@ class MonteCarlo(Algorithms):
     def glie_monte_carlo(self, episodes):
         # State value function initialization
         self.state_action_value_estimation = np.zeros(self.state_action_value_shape)
-        print(1)
 
         for i in range(episodes):
             # State action count initialization
@@ -23,8 +22,10 @@ class MonteCarlo(Algorithms):
                 current_state_action = states_actions_list[j]
                 # This one is for the epsilon decay
                 self.state_action_visit_count[self.coord_3d(current_state_action)] += 1
-                state_action_visit_count[self.coord_3d(current_state_action)] += 1
+                # TODO Recheck the 0,2
+                self.state_visit_count[self.coord(current_state_action[0:2])] += 1
 
+                state_action_visit_count[self.coord_3d(current_state_action)] += 1
 
                 # Here Gamma = 1 and the reward is only in the terminal episode, therefore the
                 # invrement is simplified like this
@@ -40,17 +41,15 @@ class MonteCarlo(Algorithms):
         current_state = self.Environment.first_step()
         while is_terminal == 0:
 
-            epsilon = self.epsilon_t(current_state=current_state)
+            epsilon = self.epsilon_t(count=self.state_visit_count[self.coord(current_state)])
             self.epsilon_list.append(epsilon)
 
             action = self.epsilon_greedy(state=current_state, epsilon=epsilon)
 
             new_state, reward, is_terminal = self.Environment.step(do_hit=action,
                                                                    scores=current_state)
-            print(is_terminal, current_state[0])
 
-            current_state.append(action)
-            current_state_action = current_state
+            current_state_action = self.to_state_action(state=current_state, action=action)
             states_actions_list.append(current_state_action)
             current_state = new_state
 

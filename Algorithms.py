@@ -55,8 +55,8 @@ class Algorithms():
         # TODO Check if it really works
         return state_value_function.max(axis=2)
 
-    def epsilon_t(self, current_state):
-        return self.N0 / (self.N0 + self.state_visit_count[self.coord(current_state)])
+    def epsilon_t(self, count):
+        return self.N0 / (self.N0 + count)
 
     def alpha_t(self, current_state):
         return 1 / (self.state_visit_count[self.coord(current_state)] + 1)
