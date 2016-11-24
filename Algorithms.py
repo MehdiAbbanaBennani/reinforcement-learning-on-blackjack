@@ -22,6 +22,8 @@ class Algorithms():
         self.state_action_total_return = np.zeros(self.state_action_value_shape)
         self.state_action_value_estimation = np.zeros(self.state_action_value_shape)
 
+        self.epsilon_list = []
+
         self.N0 = N0
         self.gamma = gamma
 
@@ -41,19 +43,12 @@ class Algorithms():
         action = round(np.random.binomial(1, policy[self.coord(state)]))
         return action
 
-    def epsilon_greedy_bis(self, state, epsilon):
+    def epsilon_greedy(self, state, epsilon):
         pick = round(np.random.binomial(1, epsilon / 2))
         if pick:
             return round(np.random.binomial(1, 1 / 2))
         else:
-            array = self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :]
-            return array.argmax()
-
-    def epsilon_greedy(self, state, epsilon):
-        pick = round(np.random.binomial(1, epsilon / 2))
-        possibilities = [(self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :]).argmax(),
-                         round(np.random.binomial(1, 1 / 2))]
-        return possibilities[pick]
+            return self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :].argmax()
 
     @staticmethod
     def to_value_function(state_value_function):
@@ -66,3 +61,8 @@ class Algorithms():
     def alpha_t(self, current_state):
         return 1 / (self.state_visit_count[self.coord(current_state)] + 1)
 
+    @staticmethod
+    def to_state_action(state, action):
+        state2 = np.copy(state)
+        state2 = np.append(state2, action)
+        return state2
