@@ -58,8 +58,8 @@ class Algorithms():
     def epsilon_t(self, count):
         return self.N0 / (self.N0 + count)
 
-    def alpha_t(self, current_state):
-        return 1 / (self.state_visit_count[self.coord(current_state)] + 1)
+    def alpha_t(self, current_state_action):
+        return 1 / (self.state_action_visit_count[self.coord_3d(current_state_action)] + 1)
 
     @staticmethod
     def to_state_action(state, action):
