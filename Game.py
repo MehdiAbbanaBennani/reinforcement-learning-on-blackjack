@@ -3,13 +3,10 @@ import random as rand
 
 class Game():
 
-    def __init__(self):
-        i = 0
-
     @staticmethod
     def generate_card(player_score):
         card_number = rand.randint(1, 10)
-        card_color = - ((rand.randint(0, 3) % 2) - 1 / 2) * 2
+        card_color = - ((rand.randint(0, 2) % 2) - 1 / 2) * 2
         # The card color 1 is black with probability 0.66 and -1 is red
         player_score += card_color * card_number
         return player_score
@@ -31,8 +28,11 @@ class Game():
                 is_terminal = 1
 
         else:
+
+            # TODO Bottleneck
             while dealer_score < 17:
                 dealer_score = self.generate_card(dealer_score)
+
             if dealer_score > 21 or player_score > dealer_score:
                 reward = 1
             elif dealer_score == player_score:

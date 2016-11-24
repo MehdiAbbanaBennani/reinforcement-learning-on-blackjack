@@ -22,6 +22,8 @@ class Algorithms():
         self.state_action_total_return = np.zeros(self.state_action_value_shape)
         self.state_action_value_estimation = np.zeros(self.state_action_value_shape)
 
+        self.epsilon_list = []
+
         self.N0 = N0
         self.gamma = gamma
 
@@ -33,6 +35,10 @@ class Algorithms():
     def coord_3d(vector):
         return int(vector[0]) - 1, int(vector[1]) - 1, int(vector[2])
 
+    @staticmethod
+    def coord_3d_2(state, action):
+        return int(state[0]) - 1, int(state[1]) - 1, int(action)
+
     def random_policy(self, state, policy):
         action = round(np.random.binomial(1, policy[self.coord(state)]))
         return action
@@ -42,17 +48,21 @@ class Algorithms():
         if pick:
             return round(np.random.binomial(1, 1 / 2))
         else:
-            array = self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :]
-            return array.argmax()
+            return self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :].argmax()
 
     @staticmethod
     def to_value_function(state_value_function):
         # TODO Check if it really works
         return state_value_function.max(axis=2)
 
-    def epsilon_t(self, current_state):
-        return self.N0 / (self.N0 + self.state_visit_count[self.coord(current_state)])
+    def epsilon_t(self, count):
+        return self.N0 / (self.N0 + count)
 
-    def alpha_t(self, current_state):
-        return 1 / self.state_visit_count[self.coord(current_state)]
+    def alpha_t(self, current_state_action):
+        return 1 / (self.state_action_visit_count[self.coord_3d(current_state_action)] + 1)
 
+    @staticmethod
+    def to_state_action(state, action):
+        state2 = np.copy(state)
+        state2 = np.append(state2, action)
+        return state2
