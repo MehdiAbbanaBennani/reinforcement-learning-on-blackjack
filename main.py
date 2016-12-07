@@ -10,23 +10,23 @@ import time
 start_time = time.time()
 
 # Parameters
-episodes = 100000
+episodes = 1000000
 N0 = 100
-landa = 0.9
+landa = 0.5
 gamma = 1
 
 # TODO epsilon doesn't decrease with time?
 Smart_Agent_1 = MonteCarlo(N0=N0, gamma=gamma)
-Smart_Agent_2 = TDLearning(landa=0.9, gamma=gamma, N0=N0)
+Smart_Agent_2 = TDLearning(landa=landa, gamma=gamma, N0=N0)
 
 # value, state_decision = Smart_Agent_1.learn2(episodes=episodes)
 value, state_decision = Smart_Agent_2.learn_sarsa(episodes=episodes)
-# value, state_decision = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=1)
+# value, state_decision = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=landa)
 
-epsilon_list = Smart_Agent_2.epsilon_list
+# epsilon_list = Smart_Agent_2.epsilon_list
 
-plt.plot(np.arange(np.size(epsilon_list)), epsilon_list)
-plt.show()
+# plt.plot(np.arange(np.size(epsilon_list)), epsilon_list)
+# plt.show()
 
 print("--- %s seconds ---" % (time.time() - start_time))
 

@@ -18,3 +18,6 @@ class FunctionApproximation():
         # TODO Remove assertion
         assert np.size(features) == 36
         return features
+
+    def sarsa_landa_control(self):
+        pass
