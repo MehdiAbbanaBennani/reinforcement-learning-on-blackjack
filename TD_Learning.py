@@ -112,9 +112,11 @@ class TDLearning(Algorithms):
     def learn_sarsa(self, episodes):
         self.sarsa(episodes=episodes)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
-        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2)
+        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
+               self.state_action_value_estimation
 
     def learn_sarsa_landa(self, episodes, landa):
         self.sarsa_lambda(episodes=episodes, landa=landa)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
-        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2)
+        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
+               self.state_action_value_estimation

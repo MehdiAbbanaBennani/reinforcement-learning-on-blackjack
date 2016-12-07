@@ -1,5 +1,6 @@
 from MonteCarlo_Learning import MonteCarlo
 from TD_Learning import TDLearning
+from Functions import rmse
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,7 +13,7 @@ start_time = time.time()
 # Parameters
 episodes = 1000000
 N0 = 100
-landa = 0.5
+landa = 0.8
 gamma = 1
 
 # TODO epsilon doesn't decrease with time?
@@ -20,8 +21,25 @@ Smart_Agent_1 = MonteCarlo(N0=N0, gamma=gamma)
 Smart_Agent_2 = TDLearning(landa=landa, gamma=gamma, N0=N0)
 
 # value, state_decision = Smart_Agent_1.learn2(episodes=episodes)
-# value, state_decision = Smart_Agent_2.learn_sarsa(episodes=episodes)
-value, state_decision = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=landa)
+
+# rmse_array = []
+# landa_array = np.arange(0, 1, 0.1)
+# for landa in landa_array:
+#     value_sarsa, state_decision_sarsa, state_action_value_sarsa = Smart_Agent_2.learn_sarsa(episodes=episodes)
+#     value_sarsa_lambda, state_decision_sarsa_lambda, state_action_value_sarsa_lambda = Smart_Agent_2.learn_sarsa_landa(episodes=episodes,
+#                                                                                                                        landa=landa)
+#     rmse_landa = rmse(state_action_value_sarsa, state_action_value_sarsa_lambda)
+#     rmse_array = np.append(rmse_array, rmse_landa)
+
+
+# value_sarsa, state_decision_sarsa, state_action_value_sarsa = Smart_Agent_2.learn_sarsa(episodes=episodes)
+value_sarsa_lambda, state_decision_sarsa_lambda, state_action_value_sarsa_lambda = Smart_Agent_2.learn_sarsa_landa(episodes=episodes,
+                                                                                                                   landa = landa)
+
+# value = value_sarsa
+value = value_sarsa_lambda
+# state_decision = state_decision_sarsa
+state_decision = state_action_value_sarsa_lambda
 
 # epsilon_list = Smart_Agent_2.epsilon_list
 
