@@ -20,8 +20,8 @@ Smart_Agent_1 = MonteCarlo(N0=N0, gamma=gamma)
 Smart_Agent_2 = TDLearning(landa=landa, gamma=gamma, N0=N0)
 
 # value, state_decision = Smart_Agent_1.learn2(episodes=episodes)
-value, state_decision = Smart_Agent_2.learn_sarsa(episodes=episodes)
-# value, state_decision = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=landa)
+# value, state_decision = Smart_Agent_2.learn_sarsa(episodes=episodes)
+value, state_decision = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=landa)
 
 # epsilon_list = Smart_Agent_2.epsilon_list
 

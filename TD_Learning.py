@@ -26,13 +26,8 @@ class TDLearning(Algorithms):
         self.sarsa_initialize()
 
         for i in range(episodes):
-            # print(i, '/', episodes)
-
             current_state = self.Environment.first_step()
             epsilon = self.epsilon_t(count=self.state_visit_count[self.coord(current_state)])
-
-            self.epsilon_list.append(epsilon)
-
             current_action = self.epsilon_greedy(state=current_state, epsilon=epsilon)
             current_state_action = self.to_state_action(state=current_state, action=current_action)
 
@@ -41,28 +36,33 @@ class TDLearning(Algorithms):
 
             new_state, reward, is_terminal = self.Environment.step(do_hit=current_action,
                                                                    scores=current_state)
-            if is_terminal == 1:
-                current_state_action = self.to_state_action(action=current_action, state=current_state)
-                alpha = self.alpha_t(current_state_action=current_state_action)
-
-                self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)] += alpha * (reward
-                            - self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)])
 
             while is_terminal == 0:
+
                 epsilon = self.epsilon_t(count=self.state_visit_count[self.coord(new_state)])
                 new_action = self.epsilon_greedy(state=new_state, epsilon=epsilon)
-                current_state_action = self.to_state_action(action=current_action, state=current_state)
+
                 alpha = self.alpha_t(current_state_action=current_state_action)
 
                 self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)] += alpha * (reward +
-                            self.gamma * self.state_action_value_estimation[self.coord_3d_2(new_state, new_action)]
-                         - self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)])
+                    self.gamma * self.state_action_value_estimation[self.coord_3d_2(new_state, new_action)] * (1 -
+                        is_terminal) - self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)])
 
                 current_state = new_state
                 current_action = new_action
+                current_state_action = self.to_state_action(action=current_action, state=current_state)
+
+                self.state_action_visit_count[self.coord_3d(current_state_action)] += 1
+                self.state_visit_count[self.coord(current_state)] += 1
 
                 new_state, reward, is_terminal = self.Environment.step(do_hit=current_action,
                                                                        scores=current_state)
+
+            # For the terminal state
+            alpha = self.alpha_t(current_state_action=current_state_action)
+
+            self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)] += alpha * (reward
+                        - self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)])
 
     def sarsa_lambda(self, episodes, landa):
         self.sarsa_lambda_initialize()
@@ -74,39 +74,40 @@ class TDLearning(Algorithms):
             current_state = self.Environment.first_step()
             epsilon = self.epsilon_t(count=self.state_visit_count[self.coord(current_state)])
             current_action = self.epsilon_greedy(state=current_state, epsilon=epsilon)
+            current_state_action = self.to_state_action(action=current_action, state=current_state)
+
+            self.state_action_visit_count[self.coord_3d(current_state_action)] += 1
+            self.state_visit_count[self.coord(current_state)] += 1
 
             new_state, reward, is_terminal = self.Environment.step(do_hit=current_action,
                                                                    scores=current_state)
 
-            if is_terminal == 1:
-                current_state_action = self.to_state_action(action=current_action, state=current_state)
-                alpha = self.alpha_t(current_state_action=current_state_action)
-
-                self.state_action_value_estimation[self.coord_3d(current_state_action)] += alpha *  \
-                    (reward - self.state_action_value_estimation[self.coord_3d(current_state_action)])
-
             while is_terminal == 0:
                 epsilon = self.epsilon_t(count=self.state_visit_count[self.coord(new_state)])
                 new_action = self.epsilon_greedy(state=new_state, epsilon=epsilon)
-
-                current_state_action = self.to_state_action(action=current_action, state=current_state)
                 new_state_action = self.to_state_action(state=new_state, action=new_action)
 
                 delta = reward + self.gamma * self.state_action_value_estimation[self.coord_3d(new_state_action)]\
                         - self.state_action_value_estimation[self.coord_3d(current_state_action)]
                 self.eligibility_trace[self.coord_3d(current_state_action)] += 1
 
-                alpha = self.state_action_visit_count
+                alpha = self.alpha_t(current_state_action=current_state_action)
                 self.state_action_value_estimation += delta * np.multiply(alpha, self.eligibility_trace)
                 self.eligibility_trace = self.gamma * landa * self.eligibility_trace
 
-                if current_state[0] > 10:
-                    print(current_state[0])
-
                 current_state = new_state.copy()
                 current_action = new_action
+                current_state_action = self.to_state_action(action=current_action, state=current_state)
+
+                self.state_action_visit_count[self.coord_3d(current_state_action)] += 1
+                self.state_visit_count[self.coord(current_state)] += 1
                 new_state, reward, is_terminal = self.Environment.step(do_hit=current_action,
                                                                        scores=current_state)
+
+            alpha = self.alpha_t(current_state_action=current_state_action)
+
+            self.state_action_value_estimation[self.coord_3d(current_state_action)] += \
+                alpha * (reward - self.state_action_value_estimation[self.coord_3d(current_state_action)])
 
     def learn_sarsa(self, episodes):
         self.sarsa(episodes=episodes)
