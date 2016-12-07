@@ -16,6 +16,7 @@ class FunctionApproximation():
         half_feature_vector = np.outer(dealer_feature_vector, player_feature_vector)
         half_feature_vector = half_feature_vector.flatten()
         features = np.hstack(((1 - action) * half_feature_vector, action * half_feature_vector))
+
         return features
 
     def sarsa_landa_control(self):
