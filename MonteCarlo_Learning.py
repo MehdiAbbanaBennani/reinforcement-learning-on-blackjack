@@ -12,7 +12,6 @@ class MonteCarlo(Algorithms):
 
         for i in range(episodes):
             # State action count initialization
-            print(i, '/', episodes)
             state_action_visit_count = np.zeros(self.state_action_value_shape)
 
             # Running an episode

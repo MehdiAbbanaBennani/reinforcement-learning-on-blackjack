@@ -30,10 +30,10 @@ class Game():
         else:
 
             # TODO Bottleneck
-            while dealer_score < 17:
+            while 0 < dealer_score < 17:
                 dealer_score = self.generate_card(dealer_score)
 
-            if dealer_score > 21 or player_score > dealer_score:
+            if dealer_score > 21 or player_score > dealer_score or dealer_score < 1:
                 reward = 1
             elif dealer_score == player_score:
                 reward = 0

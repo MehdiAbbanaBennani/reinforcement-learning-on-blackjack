@@ -45,10 +45,13 @@ class Algorithms():
 
     def epsilon_greedy(self, state, epsilon):
         pick = round(np.random.binomial(1, epsilon / 2))
-        if pick:
+        choices_values = self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :]
+        if pick or (choices_values[0] == 0 and choices_values[1] == 0):
             return round(np.random.binomial(1, 1 / 2))
         else:
-            return self.state_action_value_estimation[int(state[0]) - 1, int(state[1]) - 1, :].argmax()
+            # The problem with this is that this always returns 0 if the values are equal, which is a problem
+            # in the beginning where the value function is initialized to 0
+            return choices_values.argmax()
 
     @staticmethod
     def to_value_function(state_value_function):

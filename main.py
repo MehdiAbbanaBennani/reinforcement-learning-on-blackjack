@@ -1,5 +1,7 @@
 from MonteCarlo_Learning import MonteCarlo
 from TD_Learning import TDLearning
+from Functions import rmse
+from Value_Function_Approximation import FunctionApproximation
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -10,23 +12,43 @@ import time
 start_time = time.time()
 
 # Parameters
-episodes = 100000
+episodes = 1000000
 N0 = 100
-landa = 0.9
+landa = 0.8
 gamma = 1
 
 # TODO epsilon doesn't decrease with time?
 Smart_Agent_1 = MonteCarlo(N0=N0, gamma=gamma)
-Smart_Agent_2 = TDLearning(landa=0.9, gamma=gamma, N0=N0)
-
+Smart_Agent_2 = TDLearning(landa=landa, gamma=gamma, N0=N0)
+Smart_Agent_3 = FunctionApproximation(landa=landa, gamma=gamma, N0=N0, feature_space_size=36)
 # value, state_decision = Smart_Agent_1.learn2(episodes=episodes)
-value, state_decision = Smart_Agent_2.learn_sarsa(episodes=episodes)
-# value, state_decision = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=1)
 
-epsilon_list = Smart_Agent_2.epsilon_list
+# rmse_array = []
+# landa_array = np.arange(0, 1, 0.1)
+# for landa in landa_array:
+#     value_sarsa, state_decision_sarsa, state_action_value_sarsa = Smart_Agent_2.learn_sarsa(episodes=episodes)
+#     value_sarsa_lambda, state_decision_sarsa_lambda, state_action_value_sarsa_lambda = Smart_Agent_2.learn_sarsa_landa(episodes=episodes,
+#                                                                                                                        landa=landa)
+#     rmse_landa = rmse(state_action_value_sarsa, state_action_value_sarsa_lambda)
+#     rmse_array = np.append(rmse_array, rmse_landa)
 
-plt.plot(np.arange(np.size(epsilon_list)), epsilon_list)
-plt.show()
+
+# value_sarsa, state_decision_sarsa, state_action_value_sarsa = Smart_Agent_2.learn_sarsa(episodes=episodes)
+# value_sarsa_lambda, state_decision_sarsa_lambda, state_action_value_sarsa_lambda = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa = landa)
+value_sarsa_lambda_linear_appr, state_decision_sarsa_lambda_linear_appr, state_action_value_sarsa_lambda_linear_appr = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa=landa)
+
+
+# value = value_sarsa
+# value = value_sarsa_lambda
+value = value_sarsa_lambda_linear_appr
+# state_decision = state_decision_sarsa
+# state_decision = state_action_value_sarsa_lambda
+state_decision = state_action_value_sarsa_lambda_linear_appr
+
+# epsilon_list = Smart_Agent_2.epsilon_list
+
+# plt.plot(np.arange(np.size(epsilon_list)), epsilon_list)
+# plt.show()
 
 print("--- %s seconds ---" % (time.time() - start_time))
 
