@@ -69,3 +69,8 @@ class Algorithms():
         state2 = np.copy(state)
         state2 = np.append(state2, action)
         return state2
+
+    @staticmethod
+    def rmse(array1, array2):
+        return np.sum(np.square(array1 - array2))
+

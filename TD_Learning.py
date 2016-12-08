@@ -65,8 +65,6 @@ class TDLearning(Algorithms):
                         - self.state_action_value_estimation[self.coord_3d_2(current_state, current_action)])
 
     def sarsa_lambda(self, episodes, landa):
-        self.sarsa_lambda_initialize()
-
         for i in range(episodes):
 
             self.eligibility_trace = np.zeros(self.state_action_value_shape)
@@ -116,7 +114,20 @@ class TDLearning(Algorithms):
                self.state_action_value_estimation
 
     def learn_sarsa_landa(self, episodes, landa):
+        self.sarsa_lambda_initialize()
         self.sarsa_lambda(episodes=episodes, landa=landa)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
         return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
                self.state_action_value_estimation
+
+    def rmse_sarsa_landa(self, landa, measure_step, episodes, state_action_value_mc):
+        self.sarsa_lambda_initialize()
+        steps_number = episodes / measure_step
+        rmse_array = []
+
+        for i in range(int(steps_number)):
+            self.sarsa_lambda(episodes=measure_step, landa=landa)
+            rmse = self.rmse(self.state_action_value_estimation, state_action_value_mc)
+            rmse_array.append(rmse)
+
+        return rmse_array

@@ -54,12 +54,13 @@ class MonteCarlo(Algorithms):
 
         return states_actions_list, reward
 
-    def learn2(self, episodes):
+    def learn_glie(self, episodes):
         self.glie_monte_carlo(episodes=episodes)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
-        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2)
+        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
+               self.state_action_value_estimation
 
-    def learn1(self, episodes):
+    def every_visit(self, episodes):
         value_estimation = self.every_visit_monte_carlo(episodes=episodes)
         return value_estimation
 
