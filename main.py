@@ -13,7 +13,7 @@ import time
 start_time = time.time()
 
 # Parameters
-episodes = int(1e6)
+episodes = int(1e4)
 N0 = 100
 landa = 0.8
 gamma = 1
@@ -29,20 +29,32 @@ Smart_Agent_3 = FunctionApproximation(landa=landa, gamma=gamma, N0=N0, feature_s
 # value_sarsa, state_decision_sarsa, state_action_value_sarsa = Smart_Agent_2.learn_sarsa(episodes=episodes)
 # value_sarsa_lambda, state_decision_sarsa_lambda, state_action_value_sarsa_lambda = Smart_Agent_2.learn_sarsa_landa(episodes=episodes, landa = landa)
 # value_sarsa_lambda_linear_appr, state_decision_sarsa_lambda_linear_appr, state_action_value_sarsa_lambda_linear_appr = Smart_Agent_3.learn_sarsa_landa_linear_approximation(episodes=episodes, landa=landa)
+#
+# linear_appr_output = Smart_Agent_3.learn_sarsa_landa_general_approximation(episodes=episodes,
+#                                                                            landa=landa,
+#                                                                            gradient_function=Smart_Agent_3.linear_gradient,
+#                                                                            approximation_function=Smart_Agent_3.linear_approximation,
+#                                                                             theta=Smart_Agent_3.theta)
 
-# plot_results(value=value_sarsa_lambda_linear_appr, state_decision=state_decision_sarsa_lambda_linear_appr)
+quadratic_appr_output = Smart_Agent_3.learn_sarsa_landa_general_approximation(episodes=episodes,
+                                                                           landa=landa,
+                                                                           gradient_function=Smart_Agent_3.quadratic_gradient,
+                                                                           approximation_function=Smart_Agent_3.quadratic_approximation,
+                                                                            theta=Smart_Agent_3.theta2)
+
+plot_results(value=quadratic_appr_output['state_value'], state_decision=quadratic_appr_output['decision'])
 
 # rmse_array = rmse_by_episodes(episodes=episodes, landa=landa, gamma=gamma, N0=N0, measure_step=measure_step)
 # abs = np.arange(0, episodes, measure_step)
 # plt.plot(abs, rmse_array)
 # plt.show()
-
-rmse_matrix = rmse_over_landas(episodes=episodes,
-                               landa_array=landa_array,
-                               gamma=gamma,
-                               N0=N0,
-                               measure_step=measure_step)
-plot_rmse_matrix(rmse_matrix)
+#
+# rmse_matrix = rmse_over_landas(episodes=episodes,
+#                                landa_array=landa_array,
+#                                gamma=gamma,
+#                                N0=N0,
+#                                measure_step=measure_step)
+# plot_rmse_matrix(rmse_matrix)
 
 
 print("--- %s seconds ---" % (time.time() - start_time))
