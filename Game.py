@@ -28,8 +28,6 @@ class Game():
                 is_terminal = 1
 
         else:
-
-            # TODO Bottleneck
             while 0 < dealer_score < 17:
                 dealer_score = self.generate_card(dealer_score)
 
@@ -45,4 +43,3 @@ class Game():
         scores = [player_score, dealer_score]
 
         return scores, reward, is_terminal
-
