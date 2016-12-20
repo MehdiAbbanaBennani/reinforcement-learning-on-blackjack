@@ -8,7 +8,6 @@ GameMemory = GameMemory(black_count=20,
 scores = GameMemory.first_step()
 while i < limit :
     scores, reward, is_terminal, full_memory = GameMemory.step(do_hit=1, scores=scores)
-
     i += 1
     print(scores)
 print(1)

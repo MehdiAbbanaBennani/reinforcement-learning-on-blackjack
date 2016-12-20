@@ -28,10 +28,13 @@ class GameMemory():
     def first_step(self):
         # The first card for the player and the dealer need to be positive
         self.current_card_number = 0
+        self.full_memory = np.empty((0, 2))
+
         while self.full_deck[self.sampling_permutation[0], 1] < 0 or self.full_deck[self.sampling_permutation[1], 1] < 0:
             self.sampling_permutation = np.random.permutation(np.arange(self.deck_size))
         self.current_card_number = 2
-        return [self.full_deck[self.sampling_permutation[0], 0], self.full_deck[self.sampling_permutation[1], 0]]
+        return {'state': [self.full_deck[self.sampling_permutation[0], 0], self.full_deck[self.sampling_permutation[1], 0]],
+                'full_memory': self.full_memory}
 
     def step(self, do_hit, scores):
         reward = 0
@@ -64,7 +67,9 @@ class GameMemory():
 
         scores = [player_score, dealer_score]
         full_memory = self.full_memory
-        return scores, reward, is_terminal, full_memory
+        returned_state = {'scores': scores,
+                          'full_memory': full_memory}
+        return returned_state, reward, is_terminal
 
     @staticmethod
     def generate_deck(nb_black, nb_red):

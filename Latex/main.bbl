@@ -1,0 +1,32 @@
+\begin{thebibliography}{1}
+
+\bibitem{mnih-dqn-2015}
+Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
+  Marc~G. Bellemare, Alex Graves, Martin Riedmiller, Andreas~K. Fidjeland,
+  Georg Ostrovski, Stig Petersen, Charles Beattie, Amir Sadik, Ioannis
+  Antonoglou, Helen King, Dharshan Kumaran, Daan Wierstra, Shane Legg, and
+  Demis Hassabis.
+\newblock Human-level control through deep reinforcement learning.
+\newblock {\em Nature}, 518(7540):529--533, 02 2015.
+
+\bibitem{DBLP:journals/corr/RezendeEMBJH16}
+Danilo~Jimenez Rezende, S.~M.~Ali Eslami, Shakir Mohamed, Peter Battaglia, Max
+  Jaderberg, and Nicolas Heess.
+\newblock Unsupervised learning of 3d structure from images.
+\newblock {\em CoRR}, abs/1607.00662, 2016.
+
+\bibitem{44806}
+David Silver, Aja Huang, Christopher~J. Maddison, Arthur Guez, Laurent Sifre,
+  George van~den Driessche, Julian Schrittwieser, Ioannis Antonoglou, Veda
+  Panneershelvam, Marc Lanctot, Sander Dieleman, Dominik Grewe, John Nham, Nal
+  Kalchbrenner, Ilya Sutskever, Timothy Lillicrap, Madeleine Leach, Koray
+  Kavukcuoglu, Thore Graepel, and Demis Hassabis.
+\newblock Mastering the game of go with deep neural networks and tree search.
+\newblock {\em Nature}, 529:484--503, 2016.
+
+\bibitem{Sutton:1998:IRL:551283}
+Richard~S. Sutton and Andrew~G. Barto.
+\newblock {\em Introduction to Reinforcement Learning}.
+\newblock MIT Press, Cambridge, MA, USA, 1st edition, 1998.
+
+\end{thebibliography}
