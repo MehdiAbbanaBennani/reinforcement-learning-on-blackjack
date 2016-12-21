@@ -2,31 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a09a67-e574-4753-8ee8-642213e20f94" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/.Rhistory" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/MC_decision_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/MC_value_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/Sarsa_decision_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/Sarsa_lambda_0_8_value_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/Easy21_Results/Sarsa_value_1e6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/SuttonCar.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/ensae.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.synctex.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/bibliography.bib" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.aux" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.bbl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.blg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.tex" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Latex/main.toc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/game_with_memory/AlgorithmsMemory.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/game_with_memory/Value_Function_Approximation_Memory.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game_with_memory/Game_with_memory.py" afterPath="$PROJECT_DIR$/game_with_memory/Game_with_memory.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game_with_memory/main2.py" afterPath="$PROJECT_DIR$/game_with_memory/main2.py" />
     </list>
     <ignored path="Reinforcement-Learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,8 +49,8 @@
       <file leaf-file-name="Game_with_memory.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/game_with_memory/Game_with_memory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+            <state relative-caret-position="504">
+              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -155,7 +131,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -204,6 +179,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -517,7 +493,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482105736367</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Updated Learning with Memory&#10;Added Latex report">
+      <created>1482195100759</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1482195100759</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="5">
@@ -574,7 +557,8 @@
     <MESSAGE value="Scoring working" />
     <MESSAGE value="Started Deep RL" />
     <MESSAGE value="Created New Game Environement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created New Game Environement" />
+    <MESSAGE value="Updated Learning with Memory&#10;Added Latex report" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Learning with Memory&#10;Added Latex report" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -940,8 +924,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/game_with_memory/Game_with_memory.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+        <state relative-caret-position="504">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
           <folding />
         </state>
       </provider>
