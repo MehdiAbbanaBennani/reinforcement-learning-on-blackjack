@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a09a67-e574-4753-8ee8-642213e20f94" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.pdf" afterPath="$PROJECT_DIR$/Latex/main.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.synctex.gz" afterPath="$PROJECT_DIR$/Latex/main.synctex.gz" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Algorithms.py" afterPath="$PROJECT_DIR$/Algorithms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Game.py" afterPath="$PROJECT_DIR$/Game.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.aux" afterPath="$PROJECT_DIR$/Latex/main.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.log" afterPath="$PROJECT_DIR$/Latex/main.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.tex" afterPath="$PROJECT_DIR$/Latex/main.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.toc" afterPath="$PROJECT_DIR$/Latex/main.toc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MonteCarlo_Learning.py" afterPath="$PROJECT_DIR$/MonteCarlo_Learning.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TD_Learning.py" afterPath="$PROJECT_DIR$/TD_Learning.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Value_Function_Approximation.py" afterPath="$PROJECT_DIR$/Value_Function_Approximation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run.py" afterPath="$PROJECT_DIR$/run.py" />
     </list>
     <ignored path="Reinforcement-Learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -502,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482195100759</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Updated Learning with Memory&#10;Added Latex report">
+      <created>1482443911571</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1482443911571</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="5">
