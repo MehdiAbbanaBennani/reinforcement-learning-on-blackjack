@@ -10,51 +10,34 @@ These instructions will get you a copy of the project up and running on your loc
 
 You need Python 3.5 and the numpy library.
 
-```
-Give examples
-```
+## Running the simulations
 
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-In order to run a test, you can run the command :
+In order to run a simulation, you can run the command :
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+You can change the config file parameters in order to choose the algorithm (Monte Carlo Glie, sarsa, sarsa-lambda or linear_function_approximation)
+
+Then simply run the main.py
 
 ```
-Give an example
+python3 main.py
 ```
 
-### And coding style tests
+## More advanced commands
 
-Explain what these tests test and why
+Quadratic function approximation is also possible, however it is not relevant with the current binary features, you can set your own features under the Value_Function_Approximation.py file.
+You only need to change the feature vector_function, and change the feature_space_size under the run.py file.
 
-```
-Give an example
-```
+Please feel free to contact me if you have any questions.
+
+### Example output plots
+
+Some output plots are provided under the Plots folder.
 
 ## Versioning
 
-There is only one released version which is v0.1. It corresponds to the Easy21 Assignement instructions.
+The latest release is v0.2. It corresponds to the Easy21 Assignement instructions, and a few additional features.
 
-Further current developements are :
+Further planned developements are :
 Adding memory to the agent and considering a finite card game without resampling.
