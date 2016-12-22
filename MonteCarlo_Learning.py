@@ -3,8 +3,8 @@ from Algorithms import Algorithms
 
 
 class MonteCarlo(Algorithms):
-    def __init__(self, N0, gamma):
-        super().__init__(N0, gamma=gamma)
+    def __init__(self, N0, gamma, score_upper_bound):
+        super().__init__(N0, gamma=gamma, score_upper_bound=score_upper_bound)
 
     def glie_monte_carlo(self, episodes):
         # State value function initialization
@@ -36,6 +36,7 @@ class MonteCarlo(Algorithms):
     def run_episode_state_action_value(self):
         is_terminal = 0
         states_actions_list = []
+        reward = 0
 
         current_state = self.Environment.first_step()
         while is_terminal == 0:
@@ -57,8 +58,11 @@ class MonteCarlo(Algorithms):
     def learn_glie(self, episodes):
         self.glie_monte_carlo(episodes=episodes)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
-        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
-               self.state_action_value_estimation
+        output = {'state_value': state_value_estimation,
+                  'decision': self.state_action_value_estimation.argmax(axis=2),
+                  'state_action_value': self.state_action_value_estimation
+                  }
+        return output
 
     def every_visit(self, episodes):
         value_estimation = self.every_visit_monte_carlo(episodes=episodes)

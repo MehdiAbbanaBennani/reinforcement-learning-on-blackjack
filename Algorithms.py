@@ -4,15 +4,15 @@ import numpy as np
 
 
 class Algorithms():
-    def __init__(self, N0, gamma):
+    def __init__(self, N0, gamma, score_upper_bound):
         # The rows represent the player state, and the columns the dealer's state
 
         # The policy maps for each state the probability of hit
-        self.Environment = Game()
-        self.state_value_shape = (21, 10)
-        self.state_action_value_shape = (21, 10, 2)
+        self.Environment = Game(score_upper_bound=score_upper_bound)
+        self.state_value_shape = (score_upper_bound, 10)
+        self.state_action_value_shape = (score_upper_bound, 10, 2)
 
-        self.policy = np.random.rand(21, 10)
+        self.policy = np.random.rand(score_upper_bound, 10)
 
         self.value_function = np.zeros(self.state_value_shape)
         self.eligibility_trace = np.zeros(self.state_value_shape)
@@ -24,6 +24,7 @@ class Algorithms():
 
         self.epsilon_list = []
 
+        self.score_upper_bound = score_upper_bound
         self.N0 = N0
         self.gamma = gamma
 

@@ -5,19 +5,19 @@ from Algorithms import Algorithms
 
 class TDLearning(Algorithms):
 
-    def __init__(self, landa, N0, gamma):
-        super().__init__(N0=N0, gamma=gamma)
+    def __init__(self, landa, N0, gamma, score_upper_bound):
+        super().__init__(N0=N0, gamma=gamma, score_upper_bound=score_upper_bound)
         self.landa = landa
 
     def sarsa_initialize(self):
-        self.state_action_value_estimation = np.zeros((21, 10, 2))
+        self.state_action_value_estimation = np.zeros((self.score_upper_bound, 10, 2))
         self.state_action_visit_count = np.zeros(self.state_action_value_shape)
         self.state_visit_count = np.zeros(self.state_value_shape)
 
     #     TODO zero terminal state
 
     def sarsa_lambda_initialize(self):
-        self.state_action_value_estimation = np.zeros((21, 10, 2))
+        self.state_action_value_estimation = np.zeros((self.score_upper_bound, 10, 2))
         self.state_action_visit_count = np.zeros(self.state_action_value_shape)
         self.state_visit_count = np.zeros(self.state_value_shape)
     #     TODO zero terminal state
@@ -110,15 +110,21 @@ class TDLearning(Algorithms):
     def learn_sarsa(self, episodes):
         self.sarsa(episodes=episodes)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
-        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
-               self.state_action_value_estimation
+        output = {'state_value': state_value_estimation,
+                  'decision': self.state_action_value_estimation.argmax(axis=2),
+                  'state_action_value': self.state_action_value_estimation
+                  }
+        return output
 
     def learn_sarsa_landa(self, episodes, landa):
         self.sarsa_lambda_initialize()
         self.sarsa_lambda(episodes=episodes, landa=landa)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
-        return state_value_estimation, self.state_action_value_estimation.argmax(axis=2), \
-               self.state_action_value_estimation
+        output = {'state_value': state_value_estimation,
+                  'decision': self.state_action_value_estimation.argmax(axis=2),
+                  'state_action_value': self.state_action_value_estimation
+                  }
+        return output
 
     def rmse_sarsa_landa(self, landa, measure_step, episodes, state_action_value_mc):
         self.sarsa_lambda_initialize()

@@ -63,7 +63,9 @@
 \newpage
 
 \begin{abstract}
-This report is about the second year Python project I completed at ENSAE ParisTech. the assignment corresponds to the Easy21 assignment provided by the Pr. David Silver in his Reinforcement Learning course at UCL (University College London), I then goes further by extending the algorithms to the case with cards sampling without replacement and the integration of a card history memory to the agent.
+
+Reinforcement Learning is a major Machine Learning class of algorithms. In this report, I will apply some major RL algorithms to a simplified blackjack game, mostly inspired form the Easy21 Assignment by Prof. David Silver at UCL. I will demonstrate through simulations that these algorithms achieve a good performance in this framework.
+
 \end{abstract}
 
 %----------------------------------------------------------------------------------------
@@ -86,7 +88,7 @@ The report is organized as follows:in the first part, I define the problem, in t
 
 \section*{Motivation}
 \addcontentsline{toc}{section}{Motivation}
-Reinforcement learning is a one of the major Machine Learning classes of algorithms. It achived a better performance than many state of the art algorithms in many domains, such as in games\cite{mnih-dqn-2015}\cite{44806}, shape recognition\cite{DBLP:journals/corr/RezendeEMBJH16}, and it is used for some very complex problems such as driveless cars.
+Reinforcement learning is a one of the major Machine Learning classes of algorithms. It achieved a better performance than many state of the art algorithms in many domains, such as in games\cite{mnih-dqn-2015}\cite{44806}, shape recognition\cite{DBLP:journals/corr/RezendeEMBJH16}, and it is used for some very complex problems such as driveless cars.
 
 Through this assignment, I aim to:
 \begin{itemize}
@@ -94,6 +96,12 @@ Through this assignment, I aim to:
 \item apply these algorithms to concrete problems and explore their limits
 \item test new approaches and personal ideas in these problems
  \end{itemize}
+
+\section*{Running the simulations}
+The code can be retrieved under my GitHub repository :
+
+https://github.com/MehdiAB161/Reinforcement-Learning.git
+\\The running instructions are provided within the Readme file
 
 
 %----------------------------------------------------------------------------------------
@@ -116,10 +124,10 @@ distributed) with a colour of red (probability 1/3) or black (probability
 card (fully observed)
 \item Each turn the player may either stick or hit. If the player hits then she draws another card from the deck. If the player sticks she receives no further cards
 \item The values of the player’s cards are added (black cards) or subtracted (red
-cards). If the player’s sum exceeds 21, or becomes less than 1, then she “goes
+cards). If the player’s sum exceeds 51, or becomes less than 1, then she “goes
 bust” and loses the game (reward -1)
 \item If the player sticks then the dealer starts taking turns. The dealer always
-sticks on any sum of 17 or greater, and hits otherwise. If the dealer goes
+sticks on any sum of 47 or greater, and hits otherwise. If the dealer goes
 bust, then the player wins; otherwise, the outcome – win (reward +1),
 lose (reward -1), or draw (reward 0) – is the player with the largest sum
 \end{itemize}
@@ -137,7 +145,7 @@ In this part, I will put additional constraints and drop some other hypotheses o
 %----------------------------------------------------------------------------------------
 \newpage
 
-\section{Reinforcement Learning}
+\section{Forumlation of Reinforcement Learning Problem}
 
 \subsection{Definitions}
 
@@ -312,89 +320,98 @@ The intuition behind this algorithm is that, in order to estimate the value of a
 Where the state action space size is very big, we cannot use table lookup anymore to get the state action value function values for all states. In this case, we approximate the value function by parametrizing it.
 The state action value function becomes $Q(S, A, w)$, where w is a vector which size is the feature space size.
 
+In this case, we update the parameters w instead of updating every single state action pair value function. This approach also has some upsides such as approximating the value of state-actions that may be never visited.
 
-\subsubsection{Monte Carlo with Action Value Function Approximation}
+In case of the Monte Carlo 'GLIE' algorithm, we operate the following update:
+
+$\Delta w=\alpha (G_{t} - \hat{q}(S_{t}, A_{t}, w) )\nabla_{w}\hat{q}(S_{t}, A_{t}, w) )$ 
+
+This equation means that we make a step in direction of the difference of our estimate and the sampled value with Monte Carlo.
+
+For TD$-\lambda$, the update is as follows:
+
+$\Delta w=\alpha (R_{t+1} + \gamma \hat{q}(S_{t+1}, A_{t+1}, w) ) - \hat{q}(S_{t}, A_{t}, w) )\nabla_{w}\hat{q}(S_{t}, A_{t}, w) )$ 
 
 
-
-\subsubsection{Sarsa with Action Value Function Approximation}
-
+This equation means that we make a step in direction of the difference of our estimate and the sampled value with Sarsa $\lambda$.
 
 \section{Reinforcement Learning applied to Blackjack}
 
-The MonteCarlo Algorithm is the most stable algorithm, the value function approximation \ref{E21_MC_V} is related to the game.......................... 
+\subsection{Experimental results}
 
-We see that it reaches its maximum for the states ....
 
-\subsection{Monte Carlo}
+I applied the Algorithms above to the simplified blackjack game defined in the first section.
+
+I expect the Monte Carlo estimation to be the most stable algorithm, and is unbiased asymptotically.
+
+I infered the state value function from the state action value function as the the value of the action which brings the most  value from state s $V(s,a) = argmaxQ(s,a)$  The results are shown in the figure ... In this figure, we can see that we can identify the mechanisms of the game. The value function is decreasing with the card value of the dealer. Also the value 10 is relatively safe for the player because he is sure not to lose the game, from 17 to 21 .........
+
+The figure ... shows the value function using Sarsa lambda, in this figure we see that our estimate is more noisy than in the previous one. The reason is that Sarsa lambda is based on bootstrapping, therefore our updates are biased. I also expected Sarsa lambda to be slower in term of convergence speed, we can see that on the rmse figure.
+
+For this application, value function approximation is not relevant because the state space is very small the size is equal to scoreLimit * 10, which in our case corresponds to 520 states. The chosen features' space size is ....  
+
+First, I used linear function approximation, which I have theoretical convergence guaranties The result is displayed in figure ...
+We can see that 
+
+The RMSE is 
+
+The other function approximation I used is quadratic approximation, I don't have theoretical convergence guaranties. The results are displayed in ....
+
+
+
 
 \begin{figure}[!ht]
    \caption{\label{E21_MC_V} Optimal Value Function after 10⁶ episodes using GLIE}
-   \includegraphics[scale=0.5]{Easy21_Results/MC_value_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/MC_value_1e6.png}
 \end{figure}
 
 \begin{figure}[!ht]
    \caption{\label{E21_MC_D} Optimal Actions after 10⁶ episodes using GLIE}
-   \includegraphics[scale=0.5]{Easy21_Results/MC_decision_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/MC_decision_1e6.png}
 \end{figure}
 
-\subsection{TD Learning}
-
-\subsubsection{SARSA}
 
 \begin{figure}[!ht]
    \caption{\label{E21_S_V} Optimal Value Function after 10⁶ episodes using SARSA}
-   \includegraphics[scale=0.5]{Easy21_Results/Sarsa_value_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/Sarsa_value_1e6.png}
 \end{figure}
 
 \begin{figure}[!ht]
    \caption{\label{E21_S_D} Optimal Actions after 10⁶ episodes using SARSA}
-   \includegraphics[scale=0.5]{Easy21_Results/Sarsa_decision_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/Sarsa_decision_1e6.png}
 \end{figure}
 
-\subsubsection{SARSA-$\lambda$}
 
 \begin{figure}[!ht]
    \caption{\label{E21_SL_V} Optimal Value Function after 10⁶ episodes using SARSA-$\lambda$ for $\lambda=0.8$}
-   \includegraphics[scale=0.5]{Easy21_Results/Sarsa_lambda_0_8_value_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/Sarsa_lambda_0_8_value_1e6.png}
 \end{figure}
 
 \begin{figure}[!ht]
    \caption{\label{E21_SL_D} Optimal Actions after 10⁶ episodes using SARSA-$\lambda$ for $\lambda=0.8$}
-   \includegraphics[scale=0.5]{Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png}
 \end{figure}
-
-\subsection{Function Approximation}
-
-\subsubsection{Linear Function Approximation}
 
 \begin{figure}[!ht]
    \caption{\label{E21_SL_LA_V} Optimal Value Function after 10⁶ episodes using Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.8$}
-   \includegraphics[scale=0.5]{Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png}
 \end{figure}
 
 \begin{figure}[!ht]
    \caption{\label{E21_SL_LA_D} Optimal Value Function after 10⁶ episodes using Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.8$}
-   \includegraphics[scale=0.5]{Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png}
+   \includegraphics[scale=0.4]{Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png}
 \end{figure}
 
-\subsection{Conclusion}
+\subsection{Further analysis}
+In case of a very high dimensional state space, for example a finite card set without re-sampling and by integrating a memory to the agent. For 
+It is not possible to use table lookup, therefore the basic Monte Caro GLIE and Temporal difference algorithms are intractable. State Action value function approximation is necessary. 
 
-\section{Coding aspects}
-\subsection{Profiling}
-
-\subsection{Algorithms Optimization}
-
+In case of 
 
 \section{Conclusion and further possible developpements}
 Deep Q Networks and Experience Replay \cite{mnih-dqn-2015}
 
 
-%----------------------------------------------------------------------------------------
-%	Research Appendix
-%----------------------------------------------------------------------------------------
-\newpage
-\section{Appendix}
 %----------------------------------------------------------------------------------------
 %	Bibliography
 %----------------------------------------------------------------------------------------

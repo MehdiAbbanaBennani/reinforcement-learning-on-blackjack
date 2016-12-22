@@ -2,6 +2,9 @@ import random as rand
 
 
 class Game():
+    def __init__(self, score_upper_bound):
+        self.score_upper_bound = score_upper_bound
+        self.score_lower_bound = score_upper_bound - 4
 
     @staticmethod
     def generate_card(player_score):
@@ -23,15 +26,15 @@ class Game():
 
         if do_hit == 1:
             player_score = self.generate_card(player_score)
-            if player_score > 21 or player_score <= 0:
+            if player_score > self.score_upper_bound or player_score <= 0:
                 reward = -1
                 is_terminal = 1
 
         else:
-            while 0 < dealer_score < 17:
+            while 0 < dealer_score < self.score_lower_bound:
                 dealer_score = self.generate_card(dealer_score)
 
-            if dealer_score > 21 or player_score > dealer_score or dealer_score < 1:
+            if dealer_score > self.score_upper_bound or player_score > dealer_score or dealer_score < 1:
                 reward = 1
             elif dealer_score == player_score:
                 reward = 0
