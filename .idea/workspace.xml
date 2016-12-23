@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68a09a67-e574-4753-8ee8-642213e20f94" name="Default" comment="Various  fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Report.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.pdf" afterPath="$PROJECT_DIR$/Latex/main.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.synctex.gz" afterPath="$PROJECT_DIR$/Latex/main.synctex.gz" />
+    <list default="true" id="68a09a67-e574-4753-8ee8-642213e20f94" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/bibliography.bib" afterPath="$PROJECT_DIR$/Latex/bibliography.bib" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.aux" afterPath="$PROJECT_DIR$/Latex/main.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.bbl" afterPath="$PROJECT_DIR$/Latex/main.bbl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.blg" afterPath="$PROJECT_DIR$/Latex/main.blg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.log" afterPath="$PROJECT_DIR$/Latex/main.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.tex" afterPath="$PROJECT_DIR$/Latex/main.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Latex/main.toc" afterPath="$PROJECT_DIR$/Latex/main.toc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run.py" afterPath="$PROJECT_DIR$/run.py" />
     </list>
     <ignored path="Reinforcement-Learning.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +25,8 @@
       <file leaf-file-name="config.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+            <state relative-caret-position="396">
+              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -140,6 +128,12 @@
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
     </option>
   </component>
   <component name="IdeDocumentHistory">
@@ -571,7 +565,14 @@
       <option name="project" value="LOCAL" />
       <updated>1482509089490</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Various  fixes">
+      <created>1482528507329</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1482528507329</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="5">
@@ -651,7 +652,8 @@
     <MESSAGE value="Code restructured" />
     <MESSAGE value="Updated Readme" />
     <MESSAGE value="Better structure&#10;Various bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Better structure&#10;Various bug fixes" />
+    <MESSAGE value="Various  fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Various  fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1029,8 +1031,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        <state relative-caret-position="396">
+          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
           <folding />
         </state>
       </provider>
