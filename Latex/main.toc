@@ -3,17 +3,18 @@
 \contentsline {section}{Motivation}{3}
 \contentsline {section}{\numberline {1}Problem definition}{4}
 \contentsline {subsection}{\numberline {1.1}Simple case}{4}
-\contentsline {subsection}{\numberline {1.2}Card history memory integration and card sampling without replacement}{4}
 \contentsline {section}{\numberline {2}Forumlation of Reinforcement Learning Problem}{5}
 \contentsline {subsection}{\numberline {2.1}Definitions}{5}
 \contentsline {subsection}{\numberline {2.2}Theorems}{6}
-\contentsline {subsection}{\numberline {2.3}Monte Carlo Algorithms}{6}
-\contentsline {subsection}{\numberline {2.4}Temporal Difference Learning Algorithms}{6}
-\contentsline {subsubsection}{SARSA Algorithm}{6}
-\contentsline {subsubsection}{SARSA-$\lambda $ Algorithm}{8}
-\contentsline {subsection}{\numberline {2.5}Action Value Function Approximation}{8}
+\contentsline {subsection}{\numberline {2.3}Monte Carlo Algorithm}{6}
+\contentsline {subsection}{\numberline {2.4}SARSA Algorithm}{7}
+\contentsline {subsection}{\numberline {2.5}SARSA-$\lambda $ Algorithm}{7}
+\contentsline {subsection}{\numberline {2.6}Action Value Function Approximation}{7}
 \contentsline {section}{\numberline {3}Reinforcement Learning applied to Blackjack}{9}
 \contentsline {subsection}{\numberline {3.1}Experimental results}{9}
-\contentsline {subsection}{\numberline {3.2}Further analysis}{9}
-\contentsline {section}{\numberline {4}Conclusion and further possible developpements}{10}
-\contentsline {section}{References}{11}
+\contentsline {subsubsection}{Case the score upper limit is 21}{9}
+\contentsline {subsubsection}{Case the upper limit is 99}{10}
+\contentsline {subsection}{\numberline {3.2}Further analysis}{10}
+\contentsline {subsubsection}{Figures}{11}
+\contentsline {section}{\numberline {4}Conclusion}{11}
+\contentsline {section}{References}{13}

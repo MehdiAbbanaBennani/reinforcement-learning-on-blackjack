@@ -1,5 +1,5 @@
 parameters = {
-    'algorithm': 4,
+    'algorithm': 3,
     # Please select 0 for Monte Carlo GLIE Learning
     #               1 for Sarsa
     #               2 for Sarsa-lambda
@@ -14,9 +14,9 @@ parameters = {
 
 plot_parameters = {
     'values': 1,
-    'rmse': 0,
-    'rmse_matrix': 0,
-    'measure_step': 1000  # For plotting the rmse over episodes
+    'rmse': 1,  # Not possible for Monte Carlo, because the RMSE is against Monte Carlo
+    'rmse_matrix': 1,  # Only for Sarsa-lamda and function approximation: computes the rmse over time for many lambdas
+    'measure_step': int(1e4)  # For plotting the rmse over episodes
 }
 
 rule_parameters = {

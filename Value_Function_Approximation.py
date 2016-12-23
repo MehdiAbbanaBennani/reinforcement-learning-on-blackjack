@@ -9,7 +9,6 @@ class FunctionApproximation(TDLearning):
         super(FunctionApproximation, self).__init__(landa, N0, gamma, score_upper_bound)
         self.feature_space_size = feature_space_size
         self.theta = np.zeros(feature_space_size)
-        self.theta2 = np.zeros(feature_space_size)
 
         self.limit = int(self.score_upper_bound / 3) - 1
 
@@ -23,10 +22,14 @@ class FunctionApproximation(TDLearning):
         features = np.hstack(((1 - action) * half_feature_vector, action * half_feature_vector))
         return features
 
+    def sarsa_lambda_general_approximation_initialize(self):
+        self.state_action_value_estimation = np.zeros((self.score_upper_bound, 10, 2))
+        self.state_action_visit_count = np.zeros(self.state_action_value_shape)
+        self.state_visit_count = np.zeros(self.state_value_shape)
+        self.theta = np.zeros(self.feature_space_size)
+
     # The sarsa lambda algorithm for any function approximator
     def sarsa_lambda_general_approximation(self, episodes, landa, gradient_function, approximation_function, theta):
-        self.sarsa_lambda_initialize()
-
         for i in range(episodes):
 
             self.eligibility_trace = np.zeros(self.feature_space_size)
@@ -69,6 +72,7 @@ class FunctionApproximation(TDLearning):
             self.eligibility_trace = self.gamma * landa * self.eligibility_trace + gradient_value
             alpha = self.alpha_t(current_state_action=current_state_action)
             theta += delta * np.multiply(alpha, self.eligibility_trace)
+        return theta
 
     def estimate_state_action_value(self, approximation_function):
         player_states = np.arange(1, self.score_upper_bound + 1)
@@ -82,7 +86,7 @@ class FunctionApproximation(TDLearning):
 
     def quadratic_approximation(self, state, action):
         feature_vector = self.feature_vector(state=state, action=action)
-        return np.dot(self.theta2, np.multiply(feature_vector, feature_vector))
+        return np.dot(self.theta, np.multiply(feature_vector, feature_vector))
 
     def linear_gradient(self, state, action):
         return self.feature_vector(state=state, action=action)
@@ -91,12 +95,13 @@ class FunctionApproximation(TDLearning):
         feature_vector = self.feature_vector(state=state, action=action)
         return np.multiply(feature_vector, feature_vector)
 
-    def learn_sarsa_landa_general_approximation(self, episodes, landa, gradient_function, approximation_function, theta):
-        self.sarsa_lambda_general_approximation(episodes=episodes,
+    def learn_sarsa_landa_general_approximation(self, episodes, landa, gradient_function, approximation_function):
+        self.sarsa_lambda_general_approximation_initialize()
+        self.theta = self.sarsa_lambda_general_approximation(episodes=episodes,
                                                 landa=landa,
                                                 gradient_function=gradient_function,
                                                 approximation_function=approximation_function,
-                                                theta=theta)
+                                                theta=self.theta)
         self.state_action_value_estimation = self.estimate_state_action_value(approximation_function=approximation_function)
         state_value_estimation = self.to_value_function(state_value_function=self.state_action_value_estimation)
         output = {'state_value': state_value_estimation,
@@ -104,3 +109,19 @@ class FunctionApproximation(TDLearning):
                   'state_action_value': self.state_action_value_estimation
                   }
         return output
+
+    def rmse_general_approximation(self, landa, measure_step, episodes, state_action_value_mc, gradient_function, approximation_function):
+        self.sarsa_lambda_general_approximation_initialize()
+        steps_number = episodes / measure_step
+        rmse_array = []
+
+        for i in range(int(steps_number)):
+            rmse = self.rmse(self.state_action_value_estimation, state_action_value_mc)
+            rmse_array.append(rmse)
+            self.theta = self.sarsa_lambda_general_approximation(episodes=measure_step,
+                                                                 landa=landa,
+                                                                 gradient_function=gradient_function,
+                                                                 approximation_function=approximation_function,
+                                                                 theta=self.theta)
+            self.state_action_value_estimation = self.estimate_state_action_value(approximation_function=approximation_function)
+        return rmse_array

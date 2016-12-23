@@ -132,8 +132,19 @@ class TDLearning(Algorithms):
         rmse_array = []
 
         for i in range(int(steps_number)):
-            self.sarsa_lambda(episodes=measure_step, landa=landa)
             rmse = self.rmse(self.state_action_value_estimation, state_action_value_mc)
             rmse_array.append(rmse)
+            self.sarsa_lambda(episodes=measure_step, landa=landa)
+        return rmse_array
+
+    def rmse_sarsa(self, measure_step, episodes, state_action_value_mc):
+        self.sarsa_initialize()
+        steps_number = episodes / measure_step
+        rmse_array = []
+
+        for i in range(int(steps_number)):
+            rmse = self.rmse(self.state_action_value_estimation, state_action_value_mc)
+            rmse_array.append(rmse)
+            self.sarsa(episodes=measure_step)
 
         return rmse_array

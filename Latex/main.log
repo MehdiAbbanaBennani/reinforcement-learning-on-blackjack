@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.19)  22 DEC 2016 22:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.19)  23 DEC 2016 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -300,44 +300,85 @@ Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 (/usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2009/09/02 v1.0a change counter resetting
 )
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen167
+\captionmargin@=\dimen168
+\captionwidth=\dimen169
+\caption@tempdima=\dimen170
+\caption@indent=\dimen171
+\caption@parindent=\dimen172
+\caption@hangindent=\dimen173
+)
+\c@ContinuedFloat=\count117
+Package caption Info: float package is loaded.
+)
+\c@subfigure=\count118
+\c@subtable=\count119
+)
 (/usr/share/texlive/texmf-dist/tex/latex/version/version.sty
 Package: version 2009/09/15  v 2.0
 Package version Info: Excluding comment environments declared on input line 115
 .
 )
-\c@definition=\count117
-\c@theorem=\count118
- (./main.aux)
+\c@definition=\count120
+\c@theorem=\count121
+ (./main.aux
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
-LaTeX Font Info:    ... okay on input line 33.
-
-(/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+ (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count119
-\scratchdimen=\dimen167
+\scratchcounter=\count122
+\scratchdimen=\dimen174
 \scratchbox=\box31
-\nofMPsegments=\count120
-\nofMParguments=\count121
+\nofMPsegments=\count123
+\nofMParguments=\count124
 \everyMPshowfont=\toks29
-\MPscratchCnt=\count122
-\MPscratchDim=\dimen168
-\MPnumerator=\count123
-\makeMPintoPDFobject=\count124
+\MPscratchCnt=\count125
+\MPscratchDim=\dimen175
+\MPnumerator=\count126
+\makeMPintoPDFobject=\count127
 \everyMPtoPDFconversion=\toks30
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -387,10 +428,13 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 <ensae.jpg, id=1, 642.4pt x 359.3425pt>
 File: ensae.jpg Graphic file (type jpg)
  <use ensae.jpg>
-Package pdftex.def Info: ensae.jpg used on input line 41.
+Package pdftex.def Info: ensae.jpg used on input line 44.
 (pdftex.def)             Requested size: 58.49762pt x 32.71776pt.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
@@ -403,121 +447,113 @@ toc)
 \openout3 = `main.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 95.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 95.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
  [3]
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ) [4]
-Overfull \hbox (22.13976pt too wide) in paragraph at lines 148--148
+Overfull \hbox (22.13976pt too wide) in paragraph at lines 146--146
 []\OT1/cmr/bx/n/17.28 Forumlation of Re-in-force-ment Learn-ing Prob-
  []
 
 [5]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 225.
- [6] [7] [8] <Easy21_Results/MC_value_1e6.png, id=46, 578.16pt x 433.62pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 218.
+ [6] [7] [8] [9] [10]
+<Easy21_Results/MC_value_1e6.png, id=53, 578.16pt x 433.62pt>
 File: Easy21_Results/MC_value_1e6.png Graphic file (type png)
 
 <use Easy21_Results/MC_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/MC_value_1e6.png used on input line 365
+Package pdftex.def Info: Easy21_Results/MC_value_1e6.png used on input line 390
 .
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
 
-<Easy21_Results/MC_decision_1e6.png, id=48, 578.16pt x 433.62pt>
-File: Easy21_Results/MC_decision_1e6.png Graphic file (type png)
-
-<use Easy21_Results/MC_decision_1e6.png>
-Package pdftex.def Info: Easy21_Results/MC_decision_1e6.png used on input line 
-370.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
-
-<Easy21_Results/Sarsa_value_1e6.png, id=49, 578.16pt x 433.62pt>
+<Easy21_Results/Sarsa_value_1e6.png, id=55, 578.16pt x 433.62pt>
 File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
 
 <use Easy21_Results/Sarsa_value_1e6.png>
 Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
-376.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
+396.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
 
-<Easy21_Results/Sarsa_decision_1e6.png, id=50, 578.16pt x 433.62pt>
-File: Easy21_Results/Sarsa_decision_1e6.png Graphic file (type png)
+<use Easy21_Results/Sarsa_value_1e6.png>
+Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
+401.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
 
-<use Easy21_Results/Sarsa_decision_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_decision_1e6.png used on input li
-ne 381.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
-
-<Easy21_Results/Sarsa_lambda_0_8_value_1e6.png, id=51, 578.16pt x 433.62pt>
+<Easy21_Results/Sarsa_lambda_0_8_value_1e6.png, id=56, 578.16pt x 433.62pt>
 File: Easy21_Results/Sarsa_lambda_0_8_value_1e6.png Graphic file (type png)
 
 <use Easy21_Results/Sarsa_lambda_0_8_value_1e6.png>
 Package pdftex.def Info: Easy21_Results/Sarsa_lambda_0_8_value_1e6.png used on 
-input line 387.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
+input line 408.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
 
-<Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png, id=52, 578.16pt x 433.62pt>
-File: Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png Graphic file (type png)
+<use Easy21_Results/Sarsa_value_1e6.png>
+Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
+413.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
 
-<use Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png used 
-on input line 392.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
-
-<Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png, id=53, 578.16pt x 433.62pt>
+<Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png, id=57, 578.16pt x 433.62pt>
 File: Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png Graphic file (type png)
 
 <use Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png>
 Package pdftex.def Info: Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png used
- on input line 397.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
+ on input line 420.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
 
-<Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png, id=54, 578.16pt x 433.62
-pt>
-File: Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png Graphic file (type p
-ng)
- <use Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_0_8_linear_app_decision_1e6.png u
-sed on input line 402.
-(pdftex.def)             Requested size: 231.2599pt x 173.44492pt.
- [9] [10 <./Easy21_Results/MC_value_1e6.png> <./Easy21_Results/MC_decision_1e6.
-png>] (./main.bbl [11 <./Easy21_Results/Sarsa_value_1e6.png> <./Easy21_Results/
-Sarsa_decision_1e6.png>]) [12 <./Easy21_Results/Sarsa_lambda_0_8_value_1e6.png>
- <./Easy21_Results/Sarsa_lambda_0_8_decision_1e6.png>] [13 <./Easy21_Results/Sa
-rsa_0_8_linear_app_value_1e6.png> <./Easy21_Results/Sarsa_0_8_linear_app_decisi
-on_1e6.png>]
-(./main.aux) ) 
+<use Easy21_Results/Sarsa_value_1e6.png>
+Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
+425.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+ [11] [12 <./Easy21_Results/MC_value_1e6.png> <./Easy21_Results/Sarsa_value_1e6
+.png> <./Easy21_Results/Sarsa_lambda_0_8_value_1e6.png> <./Easy21_Results/Sarsa
+_0_8_linear_app_value_1e6.png>]
+(./main.bbl) [13] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ )
+(\end occurred inside a group at level 1)
+
+### simple group (level 1) entered at line 341 ({)
+### bottom level 
 Here is how much of TeX's memory you used:
- 5508 strings out of 493029
- 72209 string characters out of 6136233
- 150969 words of memory out of 5000000
- 8904 multiletter control sequences out of 15000+600000
- 16305 words of font info for 60 fonts, out of 8000000 for 9000
+ 6611 strings out of 493029
+ 91639 string characters out of 6136233
+ 168872 words of memory out of 5000000
+ 10002 multiletter control sequences out of 15000+600000
+ 20295 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,6n,26p,799b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
-x10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
-m10.pfb>
-Output written on main.pdf (14 pages, 930840 bytes).
+ 42i,7n,41p,890b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (14 pages, 669464 bytes).
 PDF statistics:
  124 PDF objects out of 1000 (max. 8388607)
- 76 compressed objects within 1 object stream
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

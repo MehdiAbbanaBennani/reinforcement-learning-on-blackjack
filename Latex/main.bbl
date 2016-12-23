@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{Lazaric07reinforcementlearning}
+Alessandro Lazaric, Marcello Restelli, and Andrea Bonarini.
+\newblock Reinforcement learning in continuous action spaces through sequential
+  monte carlo methods.
+\newblock In {\em Advances in Neural Information Processing Systems}, 2007.
+
 \bibitem{mnih-dqn-2015}
 Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Andrei~A. Rusu, Joel Veness,
   Marc~G. Bellemare, Alex Graves, Martin Riedmiller, Andreas~K. Fidjeland,
