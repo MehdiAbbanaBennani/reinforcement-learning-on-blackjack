@@ -23,7 +23,7 @@ def run(parameters, plot_parameters, rules_parameters):
     feature_space_size = 3 * 2 * (int(score_upper_bound / 3) - 1)
 
     # Running the algorithm
-    print("Computing the optimal value function ... ")
+    print("Computing the optimal value function and the optimal actions ... ")
     if parameters['algorithm'] == 0:
 
         Smart_Agent_1 = MonteCarlo(N0=N0, gamma=gamma, score_upper_bound=score_upper_bound)

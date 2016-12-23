@@ -9,12 +9,11 @@
 \contentsline {subsection}{\numberline {2.3}Monte Carlo Algorithm}{6}
 \contentsline {subsection}{\numberline {2.4}SARSA Algorithm}{7}
 \contentsline {subsection}{\numberline {2.5}SARSA-$\lambda $ Algorithm}{7}
-\contentsline {subsection}{\numberline {2.6}Action Value Function Approximation}{7}
+\contentsline {subsection}{\numberline {2.6}Action Value Function Approximation}{8}
 \contentsline {section}{\numberline {3}Reinforcement Learning applied to Blackjack}{9}
 \contentsline {subsection}{\numberline {3.1}Experimental results}{9}
-\contentsline {subsubsection}{Case the score upper limit is 21}{9}
-\contentsline {subsubsection}{Case the upper limit is 99}{10}
-\contentsline {subsection}{\numberline {3.2}Further analysis}{10}
-\contentsline {subsubsection}{Figures}{11}
-\contentsline {section}{\numberline {4}Conclusion}{11}
-\contentsline {section}{References}{13}
+\contentsline {subsubsection}{\numberline {3.1.1}Case the score upper limit is 21}{9}
+\contentsline {subsubsection}{\numberline {3.1.2}Case the upper limit is 51}{12}
+\contentsline {subsection}{\numberline {3.2}Further discussion}{14}
+\contentsline {section}{\numberline {4}Conclusion}{15}
+\contentsline {section}{References}{16}

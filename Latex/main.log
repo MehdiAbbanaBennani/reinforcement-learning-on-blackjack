@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.19)  23 DEC 2016 16:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.12.19)  23 DEC 2016 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -349,21 +349,75 @@ LaTeX Warning: Label `E21_S_V' multiply defined.
 
 LaTeX Warning: Label `sub@E21_S_V' multiply defined.
 
+
+LaTeX Warning: Label `E21_MC_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_MC_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_SL_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_SL_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_SL_LA_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_SL_LA_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_MC_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_MC_V' multiply defined.
+
+
+LaTeX Warning: Label `E21_S_V' multiply defined.
+
+
+LaTeX Warning: Label `sub@E21_S_V' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
  (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
 )
@@ -434,7 +488,7 @@ Package caption Info: End \AtBeginDocument code.
 <ensae.jpg, id=1, 642.4pt x 359.3425pt>
 File: ensae.jpg Graphic file (type jpg)
  <use ensae.jpg>
-Package pdftex.def Info: ensae.jpg used on input line 44.
+Package pdftex.def Info: ensae.jpg used on input line 45.
 (pdftex.def)             Requested size: 58.49762pt x 32.71776pt.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-0.def
@@ -447,113 +501,184 @@ toc)
 \openout3 = `main.toc'.
 
  [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 101.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 101.
  [3]
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 ) [4]
-Overfull \hbox (22.13976pt too wide) in paragraph at lines 146--146
+Overfull \hbox (22.13976pt too wide) in paragraph at lines 149--149
 []\OT1/cmr/bx/n/17.28 Forumlation of Re-in-force-ment Learn-ing Prob-
  []
 
 [5]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 218.
- [6] [7] [8] [9] [10]
-<Easy21_Results/MC_value_1e6.png, id=53, 578.16pt x 433.62pt>
-File: Easy21_Results/MC_value_1e6.png Graphic file (type png)
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 222.
+ [6] [7] [8] [9] <Plots/21/rmse_matrix.png, id=50, 578.16pt x 433.62pt>
+File: Plots/21/rmse_matrix.png Graphic file (type png)
 
-<use Easy21_Results/MC_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/MC_value_1e6.png used on input line 390
+<use Plots/21/rmse_matrix.png>
+Package pdftex.def Info: Plots/21/rmse_matrix.png used on input line 376.
+(pdftex.def)             Requested size: 155.99762pt x 116.99295pt.
+
+<Plots/21/MC1e6Value.png, id=52, 578.16pt x 433.62pt>
+File: Plots/21/MC1e6Value.png Graphic file (type png)
+
+<use Plots/21/MC1e6Value.png>
+Package pdftex.def Info: Plots/21/MC1e6Value.png used on input line 390.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/21/Sarsa1e6Value.png, id=53, 578.16pt x 433.62pt>
+File: Plots/21/Sarsa1e6Value.png Graphic file (type png)
+
+<use Plots/21/Sarsa1e6Value.png>
+Package pdftex.def Info: Plots/21/Sarsa1e6Value.png used on input line 396.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/21/Sarsa1e06rmse.png, id=54, 578.16pt x 433.62pt>
+File: Plots/21/Sarsa1e06rmse.png Graphic file (type png)
+
+<use Plots/21/Sarsa1e06rmse.png>
+Package pdftex.def Info: Plots/21/Sarsa1e06rmse.png used on input line 401.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/21/SarsaLambda0_5_1e6Value.png, id=55, 578.16pt x 433.62pt>
+File: Plots/21/SarsaLambda0_5_1e6Value.png Graphic file (type png)
+
+<use Plots/21/SarsaLambda0_5_1e6Value.png>
+Package pdftex.def Info: Plots/21/SarsaLambda0_5_1e6Value.png used on input lin
+e 408.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/21/SarsaLambda0_5_1e6rmse.png, id=56, 578.16pt x 433.62pt>
+File: Plots/21/SarsaLambda0_5_1e6rmse.png Graphic file (type png)
+
+<use Plots/21/SarsaLambda0_5_1e6rmse.png>
+Package pdftex.def Info: Plots/21/SarsaLambda0_5_1e6rmse.png used on input line
+ 413.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/21/LinApp1e6Value.png, id=57, 578.16pt x 433.62pt>
+File: Plots/21/LinApp1e6Value.png Graphic file (type png)
+
+<use Plots/21/LinApp1e6Value.png>
+Package pdftex.def Info: Plots/21/LinApp1e6Value.png used on input line 420.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/21/LinApp1e6rmse.png, id=58, 578.16pt x 433.62pt>
+File: Plots/21/LinApp1e6rmse.png Graphic file (type png)
+
+<use Plots/21/LinApp1e6rmse.png>
+Package pdftex.def Info: Plots/21/LinApp1e6rmse.png used on input line 425.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+ [10 <./Plots/21/rmse_matrix.png>] [11 <./Plots/21/MC1e6Value.png> <./Plots/21/
+Sarsa1e6Value.png> <./Plots/21/Sarsa1e06rmse.png> <./Plots/21/SarsaLambda0_5_1e
+6Value.png> <./Plots/21/SarsaLambda0_5_1e6rmse.png> <./Plots/21/LinApp1e6Value.
+png> <./Plots/21/LinApp1e6rmse.png>]
+<Plots/51/MC1e6Value.png, id=74, 578.16pt x 433.62pt>
+File: Plots/51/MC1e6Value.png Graphic file (type png)
+
+<use Plots/51/MC1e6Value.png>
+Package pdftex.def Info: Plots/51/MC1e6Value.png used on input line 454.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/Sarsa1e6Value.png, id=75, 578.16pt x 433.62pt>
+File: Plots/51/Sarsa1e6Value.png Graphic file (type png)
+
+<use Plots/51/Sarsa1e6Value.png>
+Package pdftex.def Info: Plots/51/Sarsa1e6Value.png used on input line 460.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/Sarsa1e06rmse.png, id=76, 578.16pt x 433.62pt>
+File: Plots/51/Sarsa1e06rmse.png Graphic file (type png)
+
+<use Plots/51/Sarsa1e06rmse.png>
+Package pdftex.def Info: Plots/51/Sarsa1e06rmse.png used on input line 465.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/SarsaLambda0_5_1e6Value.png, id=77, 578.16pt x 433.62pt>
+File: Plots/51/SarsaLambda0_5_1e6Value.png Graphic file (type png)
+
+<use Plots/51/SarsaLambda0_5_1e6Value.png>
+Package pdftex.def Info: Plots/51/SarsaLambda0_5_1e6Value.png used on input lin
+e 472.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/SarsaLambda0_5_1e6rmse.png, id=78, 578.16pt x 433.62pt>
+File: Plots/51/SarsaLambda0_5_1e6rmse.png Graphic file (type png)
+
+<use Plots/51/SarsaLambda0_5_1e6rmse.png>
+Package pdftex.def Info: Plots/51/SarsaLambda0_5_1e6rmse.png used on input line
+ 477.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/LinApp1e6Value.png, id=79, 578.16pt x 433.62pt>
+File: Plots/51/LinApp1e6Value.png Graphic file (type png)
+
+<use Plots/51/LinApp1e6Value.png>
+Package pdftex.def Info: Plots/51/LinApp1e6Value.png used on input line 484.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/LinApp1e6rmse.png, id=80, 578.16pt x 433.62pt>
+File: Plots/51/LinApp1e6rmse.png Graphic file (type png)
+
+<use Plots/51/LinApp1e6rmse.png>
+Package pdftex.def Info: Plots/51/LinApp1e6rmse.png used on input line 489.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+File: Plots/51/MC1e6Value.png Graphic file (type png)
+ <use Plots/51/MC1e6Value.png>
+Package pdftex.def Info: Plots/51/MC1e6Value.png used on input line 502.
+(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
+
+<Plots/51/MC1e6Valuegamma0_5.png, id=81, 578.16pt x 433.62pt>
+File: Plots/51/MC1e6Valuegamma0_5.png Graphic file (type png)
+
+<use Plots/51/MC1e6Valuegamma0_5.png>
+Package pdftex.def Info: Plots/51/MC1e6Valuegamma0_5.png used on input line 507
 .
 (pdftex.def)             Requested size: 124.79857pt x 93.597pt.
-
-<Easy21_Results/Sarsa_value_1e6.png, id=55, 578.16pt x 433.62pt>
-File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
-
-<use Easy21_Results/Sarsa_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
-396.
-(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
-File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
-
-<use Easy21_Results/Sarsa_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
-401.
-(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
-
-<Easy21_Results/Sarsa_lambda_0_8_value_1e6.png, id=56, 578.16pt x 433.62pt>
-File: Easy21_Results/Sarsa_lambda_0_8_value_1e6.png Graphic file (type png)
-
-<use Easy21_Results/Sarsa_lambda_0_8_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_lambda_0_8_value_1e6.png used on 
-input line 408.
-(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
-File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
-
-<use Easy21_Results/Sarsa_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
-413.
-(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
-
-<Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png, id=57, 578.16pt x 433.62pt>
-File: Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png Graphic file (type png)
-
-<use Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png used
- on input line 420.
-(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
-File: Easy21_Results/Sarsa_value_1e6.png Graphic file (type png)
-
-<use Easy21_Results/Sarsa_value_1e6.png>
-Package pdftex.def Info: Easy21_Results/Sarsa_value_1e6.png used on input line 
-425.
-(pdftex.def)             Requested size: 124.79857pt x 93.597pt.
- [11] [12 <./Easy21_Results/MC_value_1e6.png> <./Easy21_Results/Sarsa_value_1e6
-.png> <./Easy21_Results/Sarsa_lambda_0_8_value_1e6.png> <./Easy21_Results/Sarsa
-_0_8_linear_app_value_1e6.png>]
-(./main.bbl) [13] (./main.aux)
+ [12] [13 <./Plots/51/MC1e6Value.png> <./Plots/51/Sarsa1e6Value.png> <./Plots/5
+1/Sarsa1e06rmse.png> <./Plots/51/SarsaLambda0_5_1e6Value.png> <./Plots/51/Sarsa
+Lambda0_5_1e6rmse.png> <./Plots/51/LinApp1e6Value.png> <./Plots/51/LinApp1e6rms
+e.png>] [14 <./Plots/51/MC1e6Valuegamma0_5.png>] [15] (./main.bbl) [16] (./main
+.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 341 ({)
-### bottom level 
+ ) 
 Here is how much of TeX's memory you used:
- 6611 strings out of 493029
- 91639 string characters out of 6136233
- 168872 words of memory out of 5000000
- 10002 multiletter control sequences out of 15000+600000
+ 6671 strings out of 493029
+ 93275 string characters out of 6136233
+ 167905 words of memory out of 5000000
+ 10056 multiletter control sequences out of 15000+600000
  20295 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,7n,41p,890b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (14 pages, 669464 bytes).
+ 42i,7n,41p,882b,548s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (17 pages, 1715175 bytes).
 PDF statistics:
- 124 PDF objects out of 1000 (max. 8388607)
- 82 compressed objects within 1 object stream
+ 157 PDF objects out of 1000 (max. 8388607)
+ 88 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 

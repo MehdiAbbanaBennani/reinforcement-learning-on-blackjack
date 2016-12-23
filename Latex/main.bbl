@@ -1,5 +1,10 @@
 \begin{thebibliography}{1}
 
+\bibitem{DBLP:journals/corr/abs-1209-3352}
+Shipra Agrawal and Navin Goyal.
+\newblock Thompson sampling for contextual bandits with linear payoffs.
+\newblock {\em CoRR}, abs/1209.3352, 2012.
+
 \bibitem{Lazaric07reinforcementlearning}
 Alessandro Lazaric, Marcello Restelli, and Andrea Bonarini.
 \newblock Reinforcement learning in continuous action spaces through sequential
@@ -29,6 +34,12 @@ David Silver, Aja Huang, Christopher~J. Maddison, Arthur Guez, Laurent Sifre,
   Kavukcuoglu, Thore Graepel, and Demis Hassabis.
 \newblock Mastering the game of go with deep neural networks and tree search.
 \newblock {\em Nature}, 529:484--503, 2016.
+
+\bibitem{Stafylopatis98autonomousvehicle}
+A.~Stafylopatis and K.~Blekas.
+\newblock Autonomous vehicle navigation using evolutionary reinforcement
+  learning.
+\newblock {\em European Journal of Operational Research}, pages 306--318, 1998.
 
 \bibitem{Sutton:1998:IRL:551283}
 Richard~S. Sutton and Andrew~G. Barto.

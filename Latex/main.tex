@@ -1,7 +1,8 @@
 \documentclass[12pt,a4paper]{article}
 
 \setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{2}
+\setcounter{secnumdepth}{5}
+
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -46,7 +47,7 @@
 	\vspace{1cm}
 	{\scshape\Large Master 1st year Python Machine Learning Project\par}
 	\vspace{1.5cm}
-	{\huge\bfseries On-Policy Reinforcement Learning for Blackjack\par}
+	{\huge\bfseries On-Policy Model-free Reinforcement Learning for Blackjack\par}
 	\vspace{2cm}
 	{\Large\itshape by Mehdi Abbana Bennani\par}
 	\vfill
@@ -65,11 +66,13 @@
 
 \newpage
 
+\null\vspace{\fill}
 \begin{abstract}
 
 Reinforcement Learning is a major Machine Learning class of algorithms. In this report, I will apply some major RL algorithms to a simplified blackjack game, mostly inspired form the Easy21 Assignment by Prof. David Silver at UCL. I will demonstrate through simulations that these algorithms achieve a good performance in this framework, and I will show some limits of these algorithms.
 
 \end{abstract}
+\vspace{\fill}
 
 %----------------------------------------------------------------------------------------
 %	Contents PAGE
@@ -87,13 +90,13 @@ Reinforcement Learning is a major Machine Learning class of algorithms. In this 
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 
-The report is organized as follows:in the first part, I define the problem, in the second part I describe the reinforcement learning terminology and the algorithms I will use. In the third part, I will describe some important coding aspects such as code structure and performance improvement tricks.
+The report is organized as follows:in the first part, I define the problem, in the second part I describe the reinforcement learning terminology and the algorithms I will use. In the last part, I will analyse the results I obtained through simulations.
 
 \section*{Motivation}
 \addcontentsline{toc}{section}{Motivation}
-Reinforcement learning is a one of the major Machine Learning classes of algorithms. It achieved a better performance than many state of the art algorithms in many domains, such as in games\cite{mnih-dqn-2015}\cite{44806}, shape recognition\cite{DBLP:journals/corr/RezendeEMBJH16}, and it is used for some very complex problems such as driveless cars.
+Reinforcement learning is a one of the major Machine Learning classes of algorithms. It achieved a better performance than many state of the art algorithms in many domains, such as in games\cite{mnih-dqn-2015}\cite{44806}, shape recognition\cite{DBLP:journals/corr/RezendeEMBJH16}, and it is used for some very complex problems such as autonomous cars\cite{Stafylopatis98autonomousvehicle}.
 
-Through this assignment, I aim to:
+Through this project, I aim to:
 \begin{itemize}
 \item explore and understand Reinforcement Learning Algorithms
 \item apply these algorithms to concrete problems and explore their limits
@@ -116,7 +119,7 @@ https://github.com/MehdiAB161/Reinforcement-Learning.git
 
 \subsection{Simple case}
 This exercise is similar to the Blackjack
-example in Sutton and Barto 5.3, however, the rules of the
+example in Sutton and Barto 5.3\cite{Sutton:1998:IRL:551283}, however, the rules of the
 card game are different and non-standard.
 \begin{itemize}
 \item The game is played with an infinite deck of cards (i.e. cards are sampled
@@ -182,7 +185,7 @@ v_{\pi}(s) = \mathbb{E}[G_{t} \vert S_{t}=s]
 
 \begin{definition}{State Action Value Function}
 
-The state action value function $q_{\pi}(s, a)$ of a MDP is the expected return starting from state s, and taking action a, then following the policy $\pi$
+The state action value function $q_{\pi}(s, a)$ of a MDP is the expected return starting from state s then following the policy $\pi$
 \[ 
 v_{\pi}(s) = \mathbb{E}[G_{t} \vert S_{t}=s]
 \]
@@ -213,6 +216,7 @@ $\pi \geq \pi^{\prime}$ if $v_{\pi}(s) \geq  v_{\pi}(s)$
 \subsection{Theorems}
 
 \begin{theorem}{Optimal Policy}
+	
 For any MDP
 \begin{itemize}
 \item There exists an optimal policy $\pi_{\star}$ that is better than or equal to all other policies $\pi_{\star} \geq \pi,\forall\pi $
@@ -238,7 +242,7 @@ q_{\pi}(s) = \mathbb{E}[R_{t+1} + \gamma q_{\pi}(S_{t+1}, A_{t+1}) \vert S_{t}=s
 
 \subsection{Monte Carlo Algorithm}
 
-The intuition behind this algorithm is that, in order to estimate the value of a state action pair, we run a full episode, with a policy such as $\epsilon$ greedy policy,then we update our current estimation of the action-value function in the direction of the average of the action value estimation of all visited state-action pairs during the episode.
+The intuition behind this algorithm is that, in order to estimate the value of a state action pair, we run a full episode, with a policy such as $\epsilon$ greedy policy,then we update our current estimation of the action-value function in the direction of the average of the action value of all visited state-action pairs during the episode.
 
 \begin{algorithm}
 \caption{Greedy in the Limit with Infinite Exploration Algorithm (GLIE)}
@@ -259,21 +263,21 @@ The intuition behind this algorithm is that, in order to estimate the value of a
 \subsection{SARSA Algorithm}
 
 
-The intuition behind this algorithm is that, in order to estimate the value of a state action pair, we run a full episode, with a policy such as $\epsilon$ greedy policy,then we update our current estimation of the action-value function in the direction of the average of the action value estimation of all visited state-action pairs during the episode.
+The intuition behind this algorithm is that the agent goes one step away from his state, he gets a reward then he bootstraps the value with his estimate of the value function starting from the state he fell in. Therefore this estimate will have more variance, however, one advantage is that we don't have to go through the whole episode to update the value. His policy is dynamically updated after every action.
 
 
 \begin{algorithm}
 \caption{SARSA Algorithm for On-Policy Control}
 \label{alg:sarsa}
 \begin{algorithmic}[1]
-\State Initialize $Q(s,a),\forall s \in \mathbb{S}, a \in \mathbb{A}(s)$, arbitrarlily, and Q(terminal-state,-)=0
+\State Initialize $Q(s,a),\forall s \in \mathbb{S}, a \in \mathbb{A}(s)$, arbitrarily, and Q(terminal-state,-)=0
 \For{each episode}
 \State Initialize S
 \State Choose A from S using policy derived from Q (e.g., $epsilon-greedy$)
 \For{each step in the episode}
 \State Take action A, observe R, $S^{\prime}$
 \State Choose $A^{\prime}$ from $S^{\prime}$
-\State $Q(S,A) \leftarrow Q(S,A) + \alpha(R + \gamma Q(S^{\prime}, A^{\prime}) - Q(S, A)$
+\State $Q(S,A) \leftarrow Q(S,A) + \alpha(R + \gamma Q(S^{\prime}, A^{\prime}) - Q(S, A))$
 \State $S \leftarrow S^{\prime}$
 \State $A \leftarrow A^{\prime}$
 \EndFor
@@ -282,7 +286,12 @@ The intuition behind this algorithm is that, in order to estimate the value of a
 \end{algorithm}
 
 \subsection{SARSA-$\lambda$ Algorithm}
-In the SARSA algorithm, the agent goes just one step away from his states and then he bootstraps using his estimate of the action value function. We can imagine algorithms which go n steps and then bootstrap. For the case of the sarsa lambda algorithm, he averages over all the updates with from 1 step to the maximum number of steps with a geometric weight. In other words, the estimate using one step sarsa has a weight of $\frac{\lambda}{1-\lambda}$, then the estimate of n step sarsa has a weight of $\frac{\lambda^{n}}{1-\lambda}$. The range of $\lambda$ is [0,1], so if we take a small $\lambda$, we are closer from TD learning with a few steps, and if $\lambda$ is close to 1, the states which are very far have almost a weight of one, therefore, it is almost Monte Carlo Learning. So the $\lambda$ is a cursor between TD Learning and Monte Carlo Learning.
+In the SARSA algorithm, the agent goes just one step away from his states and then he bootstraps using his estimate of the action value function. We can imagine algorithms which go n steps and then bootstrap. For the case of the SARSA-$\lambda$ algorithm, he averages over all the updates with from 1 step to the maximum number of steps with a geometric weight. In other words, the estimate using one step SARSA has a weight of $\lambda(1-\lambda)$, then the estimate of n step SARSA has a weight of $\lambda^n(1-\lambda)$. The range of $\lambda$ is [0,1], so if we take a small $\lambda$, we are closer from TD learning with a few steps, and if $\lambda$ is close to 1, the states which are very far have almost a weight of one, therefore, it is almost Monte Carlo Learning. So the $\lambda$ is like a cursor between TD Learning and Monte Carlo Learning.
+
+More formally : 
+\[q_{t}^{\lambda} = (1-\lambda)\sum_{n=1}^{\infty}{\lambda^{n-1}q_{t}^{(n)}}\]
+
+The Algorithm \ref{alg:sarsa_lambda} implementation is an backward-view implementation, as opposed to the forward-view I explained above. In this backward view, we define the eligibility trace E, the agent increment the eligibility trace of the state action pairs with their contribution to his reward. It will be then a weight to the update of the value function for every state action pair.
 
 \begin{algorithm}
 \caption{SARSA-$\lambda$ Algorithm for On-Policy Control}
@@ -309,26 +318,22 @@ In the SARSA algorithm, the agent goes just one step away from his states and th
 
 
 \subsection{Action Value Function Approximation}
-Where the state action space size is very big, we cannot use table lookup anymore to get the state action value function values for all states. In this case, we approximate the value function by parametrizing it.
-The state action value function becomes $Q(S, A, w)$, where w is a vector which size is the feature space size.
+Where the state action space size is very big, we cannot use table lookup anymore to get the state action value function values for all states. In this case, we approximate the value function by parametrising it. The state action value function becomes $Q(S, A, \textbf{w})$, where \textbf{w} is a vector which size is the feature space size. In this case, we update the parameters \textbf{w} instead of updating every single state action pair value function. This approach also has some upsides such as approximating the value of state-actions that may be never visited, meanwhile for the table lookup case, we have no estimate of the values for unvisited states.
 
-In this case, we update the parameters w instead of updating every single state action pair value function. This approach also has some upsides such as approximating the value of state-actions that may be never visited.
-
-In case of the Monte Carlo 'GLIE' algorithm, we operate the following update:
+In case of the Monte Carlo 'GLIE' algorithm, the update is :
 \begin{equation}
 \Delta \textbf{w}=\alpha (G_{t} - \hat{q}(S_{t}, A_{t}, \textbf{w}) )\nabla_{\textbf{w}}\hat{q}(S_{t}, A_{t}, \textbf{w})
 \end{equation}
 
-This equation means that we make a step in direction of the difference of our estimate and the sampled value with Monte Carlo.
+This equation means that we make a step in direction which minimizes the difference of our estimate and the sampled value with Monte Carlo.
 
 For TD$-\lambda$, the update is as follows:
-
 \begin{equation}
 \Delta \textbf{w}=\alpha (R_{t+1} + \gamma \hat{q}(S_{t+1}, A_{t+1}, \textbf{w}) ) - \hat{q}(S_{t}, A_{t}, \textbf{w}) )\nabla_{\textbf{w}}\hat{q}(S_{t}, A_{t}, \textbf{w}) )
 \end{equation}
 
 
-This equation means that we make a step in direction of the difference of our estimate and the sampled value with Sarsa $\lambda$.
+This equation means that we make a step in direction which minimizes the difference of our estimate and the sampled value with SARSA-$\lambda$.
 
 \newpage
 \section{Reinforcement Learning applied to Blackjack}
@@ -336,104 +341,202 @@ This equation means that we make a step in direction of the difference of our es
 \subsection{Experimental results}
 
 
-I applied the Algorithms above to the simplified blackjack game defined in the first section.
-For the value function approximation, the features are binary considering their belonging to the following overlapping intervals of the following cuboid:
-dealer(s) = {[1, 4], [4, 7], [7, 10]
-player(s) = {[1, 6], [4, 9] ...}
-action = {hit, stick}
+In this section, I will analyze the results of the simulations I performed using the Algorithms above to the simplified blackjack game defined in the first section.
+\\For the value function approximation, the features are binary considering their belonging to the following overlapping intervals of the following cuboid:
+\\dealer(s) = $\left\lbrace[1, 4], [4, 7], [7, 10]\right\rbrace$
+\\player(s) = $\left\lbrace[1, 6], [4, 9] ...\right\rbrace$
+\\action = $\left\lbrace hit, stick \right\rbrace$
 
 
 \subsubsection{Case the score upper limit is 21}
 
-The first case is when I set the score upper limit to 21. Therefore the state space size is 210.
-I expect the Monte Carlo estimation to be the most stable algorithm, and is unbiased asymptotically.
+The first case is when I set the score upper limit to 21. The state space size is 210.
+This case has some interesting game related properties. The player will play under the optimal policy on average between two and three games. So the furthest states (high score) are easily reached. As opposed to higher upper bound games. Also the player almost has equal probability of losing or falling in a safe area, when he is between 17 and 21. 
 
-I infered the state value function from the state action value function as the the value of the action which brings the most  value from state s $V(s,a) = argmaxQ(s,a)$  The results are shown in the figure ... In this figure, we can see that we can identify the mechanisms of the game. The value function is decreasing with the card value of the dealer. Also the value 10 is relatively safe for the player because he is sure not to lose the game, from 17 to 21 .........
+I inferred the state value function from the state action value function as the the value of the action which brings the most  value from state s \[V(s,a) = \underset{a\in\mathcal{A}}{max}{Q(s, a)}\]  
 
-The figure ... shows the value function using Sarsa lambda, in this figure we see that our estimate is more noisy than in the previous one. The reason is that Sarsa lambda is based on bootstrapping, therefore our updates are biased. I also expected Sarsa lambda to be slower in term of convergence speed, we can see that on the rmse figure.
+In the figure \ref{fig:case21}, we can see that we can identify the mechanisms of the game. The value function is decreasing with the card value of the dealer. Also the value 10 is relatively safe for the player because he is sure not to lose the game, from 17 to 21 this value is drastically higher, because the dealer has a low probability of reaching these states, therefore the player has high chances of winning.
 
-For this application, value function approximation is not relevant because the state space is very small the size is equal to scoreLimit * 10, which in our case corresponds to 520 states. 	The chosen features' space size is ....  
+The figure \ref{fig:case21} shows the value function and the RMSE (Root Mean Squared Error) for the algorithms presented in the previous part.
 
-First, I used linear function approximation, which I have theoretical convergence guaranties The result is displayed in figure ...
-We can see that 
+We can see that Monte Carlo is the most Stable algorithm, because we don't see a high variance in the plot of the value function, as opposed to SARSA, whose RMSE is very noisy and never converges. However, the RMSE for SARSA $\lambda$ is stable when the number of episodes grows. And it achieves better performance then the SARSA, which corresponds also to SARSA-$\lambda$ for $\lambda=0$. It is also what we expected because SARSA-$\lambda$ is a trade-off between Monte Carlo and SARSA.
 
-The RMSE is 
+The linear function approximation achieves lower performance asymptotically than SARSA-$\lambda$, it is normal because it is the same algorithm with less information. It still achieves less biais than SARSA, this depends on the chosen features. However the value function shape is much more different than the other value functions.
 
-The other function approximation I used is quadratic approximation, I don't have theoretical convergence guaranties. The results are displayed in ....
+In term of convergence speed, SARSA-$\lambda$ is the fastest, followed by the linear approximation,(same base algorithm), then SARSA. It is also natural, because SARSA has much less information than SARSA-$\lambda$ which explores more before bootstrapping. Therefore, it gathers more accurate information per episode, so it gets closer from the optimal solution faster.
 
-\subsubsection{Case the upper limit is 99}
-In this case the state space size is close from 1000. However, the biggest challenge is reaching some states because there is a low probability of reaching them. Those states are those which the player has a very high score in. Therefore, the variance of the obtained results increases with the player score. The figures ... show these results, for the same number of episodes as the previous case.
+For this application, value function approximation is not relevant because the state space is very small the size is equal to score limit * 10, which in our case corresponds to 520 states. 	
 
-One possible solution is allowing the player to start at t=0 from a state with a higher score than 0 and 10. However, this will have a negative impact on the policy the agent will learn because the policy won't take into account the low probability of reaching the states with very high scores.
+Quadratic approximation is equivalent to linear approximation in this case because the features are binary.
 
-Another simple solution is increasing the number of episodes, however this becomes computationally expensive. In case of multiplying the number of episodes by 10, we obtain the figure, the computation time is also multiplied by 10. This solution is intractable for higher dimension state spaces. 
+The Figure \ref{fig:rmsematrix} shows how the bias decreases asymptotically when $\lambda$ increases. This is due to the more additional weight the agent gives to the further states, this incurs that his estimation gets closer from a Monte Carlo estimation, rather than the TD Learning one.
 
-\subsection{Further analysis}
-In case of a very high dimensional state space, for example a finite card set without re-sampling and by integrating a memory to the agent.
-It is not possible to use table lookup, therefore the basic Monte Caro GLIE and Temporal difference algorithms are intractable, $n \sum_{k=1}^{n}{C_n^k}$ which is $O(n2^n)$. State Action value function approximation is necessary.
-
-As said before, the linear function approximator has theoretical garantees of convergence, which is not the case of other function approximation such as neural networks, which require other algorithms which proved to be stable to some very complex problems, such as Deep Q Networks and Experience Replay\cite{mnih-dqn-2015}.
-
-In the case of using some simpler function approximation such as linear or quadratic function approximation, the number of necessary episodes depends on the size of the feature space, also on the state space size. A direct relation between the state space and feature space size is unclear, when n becomes very high because there are some states which have low probability of being visited, therefore they don't need the same number of features as the states which are visited often. These states correspond to the memory of picking a few cards.
-
-In the case of n=21, the dominant states will be picking from 1 to 4 cards. We can then choose more features for those states, and less features for the other states. The number of possible combinations for the memories from 1 to 4 cards is 7546 * 210 ($\sum_{k=1}^{4}{C_21^k} * 210$) The order of the state space is 10⁶. 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=.4\linewidth]{Plots/21/rmse_matrix.png}
+	\caption{RMSE against episodes for $lambda$ in the [0,1] range with a step of 0.1, and for a 10⁵ episodes in total with a measure step of 4000, confronting SARSA-$\lambda$ and Monte Carlo Glie algorithm}
+	\label{fig:rmsematrix}
+\end{figure}
 
 
 
 
-\subsubsection{Figures}
+
 \begin{figure}
 	\begin{subfigure}{.4\textwidth}
 		\centering
 		\label{E21_MC_V}
 		\centering
-		\includegraphics[width=.8\linewidth]{Easy21_Results/MC_value_1e6.png}
+		\includegraphics[width=.8\linewidth]{Plots/21/MC1e6Value.png}
 		\caption{Monte Carlo GLIE}
 	\end{subfigure}%	
 	
 	\begin{subfigure}{.4\textwidth}
 		\centering
-		\includegraphics[width=.8\linewidth]{Easy21_Results/Sarsa_value_1e6.png}
+		\includegraphics[width=.8\linewidth]{Plots/21/Sarsa1e6Value.png}
 		\caption{\label{E21_S_V} SARSA}
 	\end{subfigure}%
 	\begin{subfigure}{.4\textwidth}
-	\centering
-	\includegraphics[width=.8\linewidth]{Easy21_Results/Sarsa_value_1e6.png}
-	\caption{\label{E21_S_V} SARSA}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/21/Sarsa1e06rmse.png}
+		\caption{\label{E21_S_V} SARSA}
 	\end{subfigure}%
-
-
+	
+	
 	\begin{subfigure}{.4\textwidth}
 		\centering
-		\includegraphics[width=.8\linewidth]{Easy21_Results/Sarsa_lambda_0_8_value_1e6.png}
-		\caption{\label{E21_SL_V} SARSA-$\lambda$ for $\lambda=0.8$}
+		\includegraphics[width=.8\linewidth]{Plots/21/SarsaLambda0_5_1e6Value.png}
+		\caption{\label{E21_SL_V} SARSA-$\lambda$ for $\lambda=0.5$}
 	\end{subfigure}%
-	\begin{subfigure}{.4\textwidth}
-	\centering
-	\includegraphics[width=.8\linewidth]{Easy21_Results/Sarsa_value_1e6.png}
-	\caption{\label{E21_S_V} SARSA}
-	\end{subfigure}%
-
-
 	\begin{subfigure}{.4\textwidth}
 		\centering
-		\includegraphics[width=.8\linewidth]{Easy21_Results/Sarsa_0_8_linear_app_value_1e6.png}
-		\caption{\label{E21_SL_LA_V} Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.8$}
+		\includegraphics[width=.8\linewidth]{Plots/21/SarsaLambda0_5_1e6rmse.png}
+		\caption{\label{E21_S_V} SARSA-$\lambda$ for $\lambda=0.5$}
+	\end{subfigure}%
+	
+	
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/21/LinApp1e6Value.png}
+		\caption{\label{E21_SL_LA_V} Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.5$}
 	\end{subfigure}%
 	\begin{subfigure}{.4\textwidth}
-	\centering
-	\includegraphics[width=.8\linewidth]{Easy21_Results/Sarsa_value_1e6.png}
-	\caption{\label{E21_S_V} SARSA}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/21/LinApp1e6rmse.png}
+		\caption{\label{E21_S_V} Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.5$}
 	\end{subfigure}%
-
+	
 	\caption{Optimal Value functions after 10⁶ episodes for the case of the upper bound of 21, and the corresponding RMSE against Monte Carlo Optimal Value functions with a step-size of 1000}
-	\label{fig:fig}
+	\label{fig:case21}
 \end{figure}
 
 
-\section{Conclusion}
-Deep Q Networks and Experience Replay \cite{mnih-dqn-2015}
 
+\newpage
+\subsubsection{Case the upper limit is 51}
+
+In this case the state space size is 510. The challenge compared to the previous case is reaching some states because there is a low probability of reaching them. Those states are those which the player has a very high score in. Since we sample these states less the variance of the obtained results increases with the player score. 
+
+The figure \ref{fig:case51} shows the results for an upper bound of 51, for the same number of episodes as the previous case. We notice many abnormal results. The Monte Carlo estimation is very unstable, as opposed to the other estimations. For this reason the RMSE plots, which are computed against the Monte Carlo estimation cannot be interpreted. 
+A possible explanation of this high noise in the Monte Carlo estimation is that, as opposed to TD learning, the agent doesn't change his policy on real time, therefore he loses a lot of time in the states in the middle by oscillating between them, instead of quickly understanding that they are worthless and quickly changing his policy to find more interesting states. We can see that the states close from the beginning have the least variance, which increases the further the state is from the initial ones. 
+
+One possible solution is allowing the player to start at t=0 from a state with a higher score than 0 and 10. However, this will have a negative impact on the policy the agent will learn because the policy won't take into account the low probability of reaching the states with very high scores.
+
+Another possible solution is decreasing the $\gamma$ parameter, which was set to 1 so far. This parameters sets the impatience or the value the agent gives to long term rewards. If it is close from 0, it means that the agent wants immediate reward, therefore he will look for the shortest path to this reward. By setting $\gamma$ to 1, we didn't penalize the time the agent takes to get his reward. We see in figure \ref{fig:51_comp_gamma} that in fact, there is a slight decrease of the noise when decreasing $\gamma$ to 0.5.
+
+Another simple solution is increasing the number of episodes, however this becomes computationally expensive. In case of multiplying the number of episodes by 10, we obtain the figure, the computation time is also multiplied by 10. Even with 10⁷ episodes, there is still too much variance in the Monte Carlo estimation. This solution is intractable for higher dimension state spaces. 
+
+\begin{figure}
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\label{E21_MC_V}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/MC1e6Value.png}
+		\caption{Monte Carlo GLIE}
+	\end{subfigure}%	
+	
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/Sarsa1e6Value.png}
+		\caption{\label{E21_S_V} SARSA}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/Sarsa1e06rmse.png}
+		\caption{\label{E21_S_V} SARSA}
+	\end{subfigure}%
+	
+	
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/SarsaLambda0_5_1e6Value.png}
+		\caption{\label{E21_SL_V} SARSA-$\lambda$ for $\lambda=0.5$}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/SarsaLambda0_5_1e6rmse.png}
+		\caption{\label{E21_S_V} SARSA-$\lambda$ for $\lambda=0.5$}
+	\end{subfigure}%
+	
+	
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/LinApp1e6Value.png}
+		\caption{\label{E21_SL_LA_V} Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.5$}
+	\end{subfigure}%
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/LinApp1e6rmse.png}
+		\caption{\label{E21_S_V} Linear Function Approximation and SARSA-$\lambda$ for $\lambda=0.5$}
+	\end{subfigure}%
+	
+	\caption{Optimal Value functions after 10⁶ episodes for the case of the upper bound of 51, and the corresponding RMSE against Monte Carlo Optimal Value functions with a step-size of 1000}
+	\label{fig:case51}
+\end{figure}
+
+\begin{figure}
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\label{E21_MC_V}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/MC1e6Value.png}
+		\caption{$\gamma$=1}
+	\end{subfigure}%		
+	\begin{subfigure}{.4\textwidth}
+		\centering
+		\includegraphics[width=.8\linewidth]{Plots/51/MC1e6Valuegamma0_5.png}
+		\caption{\label{E21_S_V} $\gamma$=0.5}
+	\end{subfigure}%
+	\caption{Optimal Value functions after 10⁶ episodes with Monte Carlo Glie Algorithm for the case of the upper bound of 51}
+	\label{fig:51_comp_gamma}
+\end{figure}
+
+\newpage
+\subsection{Further discussion}
+
+In case of a very high dimensional state space, for example a finite card set without re-sampling and by integrating a memory to the agent. The size of the state space is $n \sum_{k=1}^{n}{C_n^k}$ which is $O(n2^n)$. State Action value function approximation is necessary.
+It is not possible to use table lookup, therefore the basic Monte Caro GLIE and Temporal difference algorithms are intractable.
+
+In the case of using some simpler function approximation such as linear or quadratic function approximation, the number of necessary episodes depends on the size of the feature space, also on the state space size. An explicit relation between the state space and feature space size is unclear when n becomes large; because there are some states which have low probability of being visited, therefore they don't need the same number of features as the states which are visited often. These states correspond to the memory of picking a few cards.
+
+For example, in the case of n=21, the dominant states will be picking from 1 to 4 cards. We can then choose more features for those states, and less features for the other states. The number of possible combinations for the memories from 1 to 4 cards is 7546 * 210 ($\sum_{k=1}^{4}{C_21^k} * 210$). The order of this sub-state space is 10⁶. 
+
+The linear function approximation has theoretical guarantees of convergence, which is not the case of other function approximation such as neural networks, which require other algorithms which were experimentally proved to be stable in some very complex problems, such as Deep Q Networks and Experience Replay\cite{mnih-dqn-2015}.
+
+
+
+
+\newpage
+\section{Conclusion}
+The algorithms I used achieved reasonable performance in the simple case, however, they needed more tuning in the more general case.
+
+There are several other ways that could increase the quality of the estimation of the optimal policy:
+\begin{itemize}
+	\item Changing the exploration policy: I used the epsilon greedy policy in the whole problem, however there are other policies such as optimism in the face of uncertainty, Thomson sampling \cite{DBLP:journals/corr/abs-1209-3352} ...
+	\item Changing the epsilon decay : it has been proven that with the optimal decay, epsilon greedy achieves the theoretical lower regret bound, therefore an appropriate decay could be difficult to outperform with the other algorithms.
+	\item Trying to find the optimal mapping policy directly through policy gradient for example.
+	\item Using a Neural Network action value function approximator with the DQN and Experience Replay algorithm.
+\end{itemize}
 
 %----------------------------------------------------------------------------------------
 %	Bibliography
