@@ -31,17 +31,17 @@ The possible plots are the value function, the decision function and the Root Me
 
 The following pictures correspond show :
 
-The value function for the SARSA algorithm after 10^6 episodes.
+The value function for the the sarsa-lambda algorithm after 10^6 episodes and lamda=0.5
 
-![Sarsa value](https://github.com/MehdiAB161/Reinforcement-Learning/blob/master/Plots/Sarsa_lambda_0.8_value_1e6.png?raw=true)
+![SARSA-lamda value](https://github.com/MehdiAB161/Reinforcement-Learning/blob/master/Plots/Sarsa_lambda_0.8_value_1e6.png?raw=true)
 
 The decision function for the sarsa-lambda algorithm after 10^6 episodes and lamda=0.5
 
-![SARSA decision](https://github.com/MehdiAB161/Reinforcement-Learning/blob/master/Plots/Sarsa_lambda_0.8_decision_1e6.png?raw=true)
+![SARSA-lambda decision](https://github.com/MehdiAB161/Reinforcement-Learning/blob/master/Plots/Sarsa_lambda_0.8_decision_1e6.png?raw=true)
 
-The RMSE for the SARSA algorithm in function of the number of episodes.
+The RMSE against the number of episodes for the the sarsa-lambda algorithm after 10^6 episodes and lamda=0.5
 
-![SARSA decision](https://github.com/MehdiAB161/Reinforcement-Learning/blob/master/Plots/Sarsa_decision_1e6.png?raw=true)
+![SARSA-lamda RMSE](https://github.com/MehdiAB161/Reinforcement-Learning/blob/master/Plots/rmse-sarsa-lambda-0.5.png?raw=true)
 
 ## Report
 
