@@ -64,3 +64,7 @@ The latest release is v0.2. It corresponds to the Easy21 Assignment instructions
 
 Further possible developments are :
 Adding memory to the agent and considering a finite card game without resampling.
+
+## Author
+Mehdi Abbana Bennani
+
